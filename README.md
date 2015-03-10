@@ -1,6 +1,10 @@
 # DaisyBill API
 ActiveRecord Style Wrapper for DaisyBill's API
 
+[![Build Status](https://semaphoreci.com/api/v1/projects/4e51c7d8-2ca3-4c3e-9172-ff2082309342/369271/shields_badge.svg)](https://semaphoreci.com/daisybill/daisybill_api)
+[![Code Climate](https://codeclimate.com/repos/54ff0165e30ba055fa001c7f/badges/1cde64d9bdc572be43a9/gpa.svg)](https://codeclimate.com/repos/54ff0165e30ba055fa001c7f/feed)
+[![Test Coverage](https://codeclimate.com/repos/54ff0165e30ba055fa001c7f/badges/1cde64d9bdc572be43a9/coverage.svg)](https://codeclimate.com/repos/54ff0165e30ba055fa001c7f/feed)
+
 Full documentation of the api is available [here](api.daisybill.com)
 
 ## Installation
