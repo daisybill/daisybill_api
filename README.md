@@ -5,7 +5,11 @@ ActiveRecord Style Wrapper for DaisyBill's API
 [![Code Climate](https://codeclimate.com/repos/54ff0165e30ba055fa001c7f/badges/1cde64d9bdc572be43a9/gpa.svg)](https://codeclimate.com/repos/54ff0165e30ba055fa001c7f/feed)
 [![Test Coverage](https://codeclimate.com/repos/54ff0165e30ba055fa001c7f/badges/1cde64d9bdc572be43a9/coverage.svg)](https://codeclimate.com/repos/54ff0165e30ba055fa001c7f/feed)
 
-Full documentation of the api is available [here](api.daisybill.com)
+This gem is tested against the following versions of Ruby:
+- 1.9.3
+- 2.0.0
+- 2.1.5
+- 2.2.0
 
 ## Installation
 ```bash
