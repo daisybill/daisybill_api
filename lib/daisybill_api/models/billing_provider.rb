@@ -7,7 +7,9 @@ module DaisybillApi
         fein: :string,
         npi: :string,
         telephone: :string,
-        fax_number: :string
+        fax_number: :string,
+        physical_address: DaisybillApi::Models::Address,
+        pay_to_address: DaisybillApi::Models::Address
       )
 
       has_many :patients, class: 'Patient'

@@ -11,7 +11,8 @@ module DaisybillApi
         practice_internal_id: :string,
         date_of_birth: :date,
         ssn: :string,
-        telephone: :string
+        telephone: :string,
+        address: DaisybillApi::Models::Address
       )
 
       belongs_to :billing_provider, class: 'BillingProvider'

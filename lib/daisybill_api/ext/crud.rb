@@ -104,7 +104,7 @@ module DaisybillApi
         end
 
         def data
-          { self.class.singular_key => attributes }
+          { self.class.singular_key => to_params }
         end
 
         private

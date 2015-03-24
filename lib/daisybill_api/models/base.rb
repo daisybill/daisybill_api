@@ -12,8 +12,8 @@ module DaisybillApi
       validate :external
 
       def initialize(attrs = {})
-        self.attributes = attrs
         self.external_errors = {}
+        super
       end
 
       private
