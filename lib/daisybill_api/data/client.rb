@@ -25,6 +25,8 @@ module DaisybillApi
           @response = JSON.parse response
           @request = request
           @status = status
+          DaisybillApi.logger.info "Response status #{self.status}"
+          DaisybillApi.logger.debug @response.inspect
         }
       end
 

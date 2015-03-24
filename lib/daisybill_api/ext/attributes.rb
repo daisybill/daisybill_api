@@ -34,6 +34,10 @@ module DaisybillApi
       end
 
       module InstanceMethods
+        def initialize(attributes = {})
+          self.attributes = attributes
+        end
+
         def attributes
           attribute_names.each_with_object({}) { |name, attrs|
             attrs[name] = read_attribute(name)
@@ -41,7 +45,26 @@ module DaisybillApi
         end
 
         def attributes=(attrs)
-          attrs.each { |name, value| write_attribute name, value }
+          attrs.each { |name, value|
+            method = :"#{name}="
+            if respond_to? method
+              send(method, value)
+            else
+              message = "Was trying to set not existing attribute #{name.inspect} to #{value.inspect}"
+              DaisybillApi.logger.debug message
+            end
+          }
+        end
+
+        def to_params
+          attribute_names.each_with_object({}) { |name, attrs|
+            attr = read_attribute(name)
+            if attr && self.class.attrs[name].is_a?(Class)
+              attrs["#{name}_attributes"] = attr.to_params
+            else
+              attrs[name] = attr
+            end
+          }
         end
 
         def inspect
