@@ -16,6 +16,7 @@ module DaisybillApi
       )
 
       belongs_to :billing_provider, class: 'BillingProvider'
+      has_many :injuries, class: 'Injury'
     end
   end
 end

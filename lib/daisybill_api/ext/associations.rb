@@ -58,6 +58,11 @@ module DaisybillApi
         end
       end
 
+      def self.included(base)
+        base.include DaisybillApi::Ext::Associations::InstanceMethods
+        base.extend DaisybillApi::Ext::Associations::ClassMethods
+      end
+
       module InstanceMethods
       end
     end
