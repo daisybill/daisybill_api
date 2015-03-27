@@ -3,8 +3,8 @@ module DaisybillApi
     class ClaimsAdministrator
       include DaisybillApi::Ext::Attributes
 
+      attribute :id, :integer, readonly: true
       attributes(
-        id: :integer,
         name: :string
       )
     end

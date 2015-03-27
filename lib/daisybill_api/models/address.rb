@@ -3,8 +3,8 @@ module DaisybillApi
     class Address
       include DaisybillApi::Ext::Attributes
 
+      attribute :id, :integer, readonly: true
       attributes(
-        id: :integer,
         address_1: :string,
         address_2: :string,
         city: :string,

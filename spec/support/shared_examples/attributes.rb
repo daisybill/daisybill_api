@@ -1,5 +1,13 @@
+module DaisybillApi
+  module Ext
+    module Attributes
+      module ReadOnly
+      end
+    end
+  end
+end
+
 shared_examples_for DaisybillApi::Ext::Attributes do |*attributes|
-#TODO: must support deeper nesting like [:attr1, :attr2, { attr3: [:attr4, { attr5: [:attr6, :attr7] }] }]
   let(:attributes_hash) do
     generate_attributes attributes, described_class
   end
@@ -8,11 +16,13 @@ shared_examples_for DaisybillApi::Ext::Attributes do |*attributes|
   describe '#to_params' do
     subject { super().to_params }
 
-    described_class.attrs.each { |name, type|
-      if type.is_a? Class
-        its(["#{name}_attributes"]) { is_expected.to be_a Hash }
-      else
-        it { is_expected.to include name }
+    described_class.attrs.each { |name, attr|
+      unless attr.readonly?
+        if attr.type.is_a? Class
+          its(["#{name}_attributes"]) { is_expected.to be_a Hash }
+        else
+          it { is_expected.to include name }
+        end
       end
     }
   end
@@ -37,5 +47,22 @@ shared_examples_for DaisybillApi::Ext::Attributes do |*attributes|
       it { is_expected.to respond_to :"#{name}=" }
       its(name) { is_expected.to eq attributes_hash[name] }
     end
+  end
+end
+
+shared_examples_for DaisybillApi::Ext::Attributes::ReadOnly do |*attributes|
+  describe '#to_params' do
+    let(:attributes_hash) { generate_attributes attributes, described_class }
+    subject { described_class.new(attributes_hash).to_params }
+
+    attributes.each { |attr|
+      if attr.is_a?(Hash)
+        attr.each { |name|
+          it { is_expected.to_not include "#{name}_attributes" }
+        }
+      else
+        it { is_expected.to_not include attr }
+      end
+    }
   end
 end

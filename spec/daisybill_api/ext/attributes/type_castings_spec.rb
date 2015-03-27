@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe DaisybillApi::Ext::TypeCastings do
-  let(:converter) { DaisybillApi::Ext::TypeCastings }
+describe DaisybillApi::Ext::Attributes::TypeCastings do
+  let(:converter) { described_class }
 
   it { expect(converter.convert_to('2015-03-13', :date)).to eq Date.new(2015, 3, 13) }
   it { expect(converter.convert_to(DateTime.new(2015, 3, 3, 12, 27, 13), :date)).to eq Date.new(2015, 3, 3) }
