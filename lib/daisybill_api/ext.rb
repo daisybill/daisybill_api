@@ -7,12 +7,9 @@ module DaisybillApi
     class << self
       def extended(base)
         base.class_eval do
-          extend  DaisybillApi::Ext::Attributes::ClassMethods
-          include DaisybillApi::Ext::Attributes::InstanceMethods
-          extend  DaisybillApi::Ext::CRUD::ClassMethods
-          include DaisybillApi::Ext::CRUD::InstanceMethods
-          extend  DaisybillApi::Ext::Associations::ClassMethods
-          include DaisybillApi::Ext::Associations::InstanceMethods
+          include DaisybillApi::Ext::Attributes
+          include DaisybillApi::Ext::CRUD
+          include  DaisybillApi::Ext::Associations
         end
       end
     end

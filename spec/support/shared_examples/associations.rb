@@ -18,7 +18,6 @@ shared_examples_for DaisybillApi::Ext::Associations do
 end
 
 shared_examples_for DaisybillApi::Ext::Associations::HasMany do |has_many|
-  it { expect(described_class.index_path).to eq "/#{described_class.plural_key}" }
   it { is_expected.to respond_to has_many.plural_key }
 end
 

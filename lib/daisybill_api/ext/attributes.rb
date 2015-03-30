@@ -89,6 +89,11 @@ module DaisybillApi
           @values ||= {}
         end
       end
+
+      def self.included(base)
+        base.include DaisybillApi::Ext::Attributes::InstanceMethods
+        base.extend DaisybillApi::Ext::Attributes::ClassMethods
+      end
     end
   end
 end

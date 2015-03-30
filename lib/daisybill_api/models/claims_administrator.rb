@@ -1,15 +1,11 @@
 module DaisybillApi
   module Models
-    class Address
+    class ClaimsAdministrator
       include DaisybillApi::Ext::Attributes
 
       attributes(
         id: :integer,
-        address_1: :string,
-        address_2: :string,
-        city: :string,
-        state: :string,
-        zip_code: :string
+        name: :string
       )
     end
   end

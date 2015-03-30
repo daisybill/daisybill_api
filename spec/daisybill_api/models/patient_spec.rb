@@ -7,4 +7,5 @@ describe DaisybillApi::Models::Patient do
   it_behaves_like DaisybillApi::Ext::CRUD, '/patients', 'billing-provider-id'
   it_behaves_like DaisybillApi::Ext::Associations
   it_behaves_like DaisybillApi::Ext::Associations::BelongsTo, DaisybillApi::Models::BillingProvider
+  it_behaves_like DaisybillApi::Ext::Associations::HasMany, DaisybillApi::Models::Injury
 end

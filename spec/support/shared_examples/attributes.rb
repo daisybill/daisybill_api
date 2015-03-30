@@ -1,4 +1,5 @@
 shared_examples_for DaisybillApi::Ext::Attributes do |*attributes|
+#TODO: must support deeper nesting like [:attr1, :attr2, { attr3: [:attr4, { attr5: [:attr6, :attr7] }] }]
   let(:attributes_hash) do
     generate_attributes attributes, described_class
   end
