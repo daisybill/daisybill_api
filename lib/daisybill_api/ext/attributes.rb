@@ -91,8 +91,10 @@ module DaisybillApi
       end
 
       def self.included(base)
-        base.include DaisybillApi::Ext::Attributes::InstanceMethods
-        base.extend DaisybillApi::Ext::Attributes::ClassMethods
+        base.class_eval do
+          include DaisybillApi::Ext::Attributes::InstanceMethods
+          extend DaisybillApi::Ext::Attributes::ClassMethods
+        end
       end
     end
   end
