@@ -1,6 +1,9 @@
 module DaisybillApi
   module Models
     class Injury < DaisybillApi::Models::Base
+      path_prefix '/patients', :patient_id
+      rest_actions :index, :show, :create, :update
+
       attributes(
         id: :integer,
         claims_administrator: DaisybillApi::Models::ClaimsAdministrator,

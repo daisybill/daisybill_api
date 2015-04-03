@@ -1,6 +1,8 @@
 module DaisybillApi
   module Models
     class BillingProvider < DaisybillApi::Models::Base
+      rest_actions :index, :show
+
       attribute :id, :integer, readonly: true
       attributes(
         name: :string,
