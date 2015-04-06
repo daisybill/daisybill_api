@@ -128,8 +128,10 @@ module DaisybillApi
       end
 
       def self.included(base)
-        base.include DaisybillApi::Ext::CRUD::InstanceMethods
-        base.extend DaisybillApi::Ext::CRUD::ClassMethods
+        base.class_eval do
+          include DaisybillApi::Ext::CRUD::InstanceMethods
+          extend DaisybillApi::Ext::CRUD::ClassMethods
+        end
       end
     end
   end
