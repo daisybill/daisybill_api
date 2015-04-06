@@ -1,0 +1,88 @@
+require 'spec_helper'
+
+describe DaisybillApi::Ext::Attributes::Attribute do
+  let(:name) { 'description' }
+  let(:type) { :string }
+  let(:options) { {} }
+  subject { described_class.new name, type, options }
+
+  it '#value=' do
+    expect(DaisybillApi::Ext::Attributes::TypeCastings).to receive(:convert_to).with('value', :string)
+    subject.value = 'value'
+  end
+
+  context '#param_name' do
+    subject { super().param_name }
+
+    it { is_expected.to eq 'description' }
+
+    context 'when it is complex type' do
+      let(:type) { DaisybillApi::Models::Address }
+
+      it { is_expected.to eq 'description_attributes' }
+    end
+
+    context 'when it is a collection type' do
+      let(:type) { [DaisybillApi::Models::Address] }
+
+      it { is_expected.to eq 'description_attributes' }
+    end
+  end
+
+  context '#param_value' do
+    let(:value) { 'value' }
+    before { allow(subject).to receive(:value).and_return(value) }
+
+    it { expect(subject.param_value).to eq 'value' }
+
+    context 'when it is complex type' do
+      let(:type) { DaisybillApi::Models::Address }
+
+      it 'must call value.to_params' do
+        expect(value).to receive(:to_params)
+        subject.param_value
+      end
+    end
+  end
+
+  context '#to_param' do
+    context 'when not readonly' do
+      before { allow(subject).to receive(:readonly?).and_return(false) }
+      it 'must call param_name method' do
+        expect(subject).to receive(:param_name)
+        subject.to_param
+      end
+
+      it 'must call param_name method' do
+        expect(subject).to receive(:param_value)
+        subject.to_param
+      end
+    end
+
+    context 'when readonly' do
+      before { allow(subject).to receive(:readonly?).and_return(true) }
+
+      it 'must not call param_name method' do
+        expect(subject).to_not receive(:param_name)
+        subject.to_param
+      end
+
+      it 'must not call param_name method' do
+        expect(subject).to_not receive(:param_value)
+        subject.to_param
+      end
+    end
+  end
+
+  context '#readonly?' do
+    subject { super().readonly? }
+
+    it { is_expected.to be_falsey }
+
+    context 'when readonly passed' do
+      let(:options) { { readonly: true } }
+
+      it { is_expected.to be_truthy }
+    end
+  end
+end

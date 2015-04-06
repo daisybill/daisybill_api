@@ -1,27 +1,23 @@
-require 'daisybill_api/ext/type_castings'
+require 'daisybill_api/ext/attributes/type_castings'
+require 'daisybill_api/ext/attributes/attribute'
 
 module DaisybillApi
   module Ext
     module Attributes
       module ClassMethods
-        def attribute(name, type) #TODO: add possibility to define attribute like class (e.g. Address)
-          attrs[name.to_s] = type
+        def attribute(name, type, options = {})
+          attrs[name.to_s] = Attribute.new(name, type, options)
           class_eval do
             define_method(name) { read_attribute name }
-            define_method(:"#{name}=") { |value|
-              casted = DaisybillApi::Ext::TypeCastings.convert_to value, type
-              write_attribute name, casted
-            }
+            define_method(:"#{name}=") { |value| write_attribute name, value }
           end
         end
 
         def attributes(attrs)
-          all = attrs.merge created_at: :datetime, updated_at: :datetime
-          all.each { |name, type| attribute(name, type) }
-        end
-
-        def attribute_names
-          @attrs.keys
+          options = extract_options(attrs)
+          attrs.each { |name, type| attribute(name, type, options) }
+          attribute :created_at, :datetime, readonly: true
+          attribute :updated_at, :datetime, readonly: true
         end
 
         def attrs
@@ -29,26 +25,36 @@ module DaisybillApi
         end
 
         def inspect
-          "<#{name} #{attrs.map{ |k, v| "#{k}: #{v}"}.join(', ')}>"
+          "<#{name} #{attrs.map{ |k, v| "#{k}: #{v.type}"}.join(', ')}>"
+        end
+
+        private
+
+        OPTION_KEYS = [:readonly]
+
+        def extract_options(attributes)
+          OPTION_KEYS.each_with_object({}) { |key, result|
+            result[key] = attributes.delete key
+          }
         end
       end
 
       module InstanceMethods
         def initialize(attributes = {})
+          class_attrs.each { |a| attrs[a.name.to_sym] = a.clone }
           self.attributes = attributes
         end
 
         def attributes
-          attribute_names.each_with_object({}) { |name, attrs|
-            attrs[name] = read_attribute(name)
+          class_attrs.each_with_object({}) { |attr, result|
+            result[attr.name] = read_attribute(attr.name)
           }
         end
 
-        def attributes=(attrs)
-          attrs.each { |name, value|
-            method = :"#{name}="
-            if respond_to? method
-              send(method, value)
+        def attributes=(attributes)
+          attributes.each { |name, value|
+            if attrs[name.to_sym]
+              write_attribute name, value
             else
               message = "Was trying to set not existing attribute #{name.inspect} to #{value.inspect}"
               DaisybillApi.logger.debug message
@@ -57,13 +63,8 @@ module DaisybillApi
         end
 
         def to_params
-          attribute_names.each_with_object({}) { |name, attrs|
-            attr = read_attribute(name)
-            if attr && self.class.attrs[name].is_a?(Class)
-              attrs["#{name}_attributes"] = attr.to_params
-            else
-              attrs[name] = attr
-            end
+          attrs.values.each_with_object({}) { |attr, result|
+            result.merge! attr.to_param
           }
         end
 
@@ -74,19 +75,19 @@ module DaisybillApi
         private
 
         def read_attribute(name)
-          values[name.to_sym]
+          attrs[name.to_sym].value
         end
 
         def write_attribute(name, value)
-          values[name.to_sym] = value
+          attrs[name.to_sym].value = value
         end
 
-        def attribute_names
-          self.class.attribute_names
+        def class_attrs
+          @class_attrs ||= self.class.attrs.values
         end
 
-        def values
-          @values ||= {}
+        def attrs
+          @attrs ||= {}
         end
       end
 

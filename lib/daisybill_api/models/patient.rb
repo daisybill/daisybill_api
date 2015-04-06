@@ -1,8 +1,8 @@
 module DaisybillApi
   module Models
     class Patient < DaisybillApi::Models::Base
+      attribute :id, :integer, readonly: true
       attributes(
-        id: :integer,
         first_name: :string,
         last_name: :string,
         mi: :string,
