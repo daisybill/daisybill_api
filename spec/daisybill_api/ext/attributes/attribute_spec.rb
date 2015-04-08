@@ -11,13 +11,25 @@ describe DaisybillApi::Ext::Attributes::Attribute do
     subject.value = 'value'
   end
 
+  context 'value' do
+    let(:type) { [:integer] }
+
+    its(:value) { is_expected.to eq [] }
+  end
+
   context '#param_name' do
     subject { super().param_name }
 
     it { is_expected.to eq 'description' }
 
-    context 'when it is complex type' do
+    context 'when type is model' do
       let(:type) { DaisybillApi::Models::Address }
+
+      it { is_expected.to eq 'description_attributes' }
+    end
+
+    context 'when type is collection' do
+      let(:type) { [:integer] }
 
       it { is_expected.to eq 'description_attributes' }
     end
@@ -31,17 +43,37 @@ describe DaisybillApi::Ext::Attributes::Attribute do
 
   context '#param_value' do
     let(:value) { 'value' }
-    before { allow(subject).to receive(:value).and_return(value) }
+    before { subject.value = value }
 
     it { expect(subject.param_value).to eq 'value' }
 
-    context 'when it is complex type' do
+    context 'when type is model' do
       let(:type) { DaisybillApi::Models::Address }
+      let(:attrs) { { 'address_1' => 'addr1', 'address_2' => nil, 'city' => 'NY', 'state' => 'NY', 'zip_code' => '123'} }
+      let(:value) { type.new attrs }
 
-      it 'must call value.to_params' do
-        expect(value).to receive(:to_params)
-        subject.param_value
+      its(:param_value) { is_expected.to eq attrs }
+    end
+
+    context 'when type is collection' do
+      let(:type) { [:integer] }
+      let(:value) { %w(13 666) }
+
+      its(:param_value) { is_expected.to eq [13, 666] }
+    end
+
+    context 'when type is collection of models' do
+      let(:type) { [DaisybillApi::Models::Address] }
+      let(:attrs1) { { 'address_1' => 'addr1', 'address_2' => 'addr2', 'city' => 'City', 'state' => 'st', 'zip_code' => '123' } }
+      let(:attrs2) { { 'address_1' => 'addr3', 'address_2' => 'addr4', 'city' => 'city', 'state' => 'St', 'zip_code' => '456' } }
+      let(:value) do
+        [
+          DaisybillApi::Models::Address.new(attrs1),
+          DaisybillApi::Models::Address.new(attrs2)
+        ]
       end
+
+      it { expect(subject.param_value).to eq [attrs1, attrs2] }
     end
   end
 

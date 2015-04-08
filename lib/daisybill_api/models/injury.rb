@@ -7,6 +7,8 @@ module DaisybillApi
       attributes(
         id: :integer,
         claims_administrator: DaisybillApi::Models::ClaimsAdministrator,
+        review_status: :string,
+        review_errors: [:string],
         readonly: true
       )
       attributes(

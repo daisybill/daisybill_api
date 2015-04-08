@@ -4,7 +4,12 @@ module DaisybillApi
       path_prefix '/billing_providers', :billing_provider_id
       rest_actions :index, :show, :create, :update
 
-      attribute :id, :integer, readonly: true
+      attributes(
+        id: :integer,
+        review_status: :string,
+        review_errors: [:string],
+        readonly: true
+      )
       attributes(
         first_name: :string,
         last_name: :string,
