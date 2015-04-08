@@ -1,7 +1,7 @@
 module DaisybillApi
   module Models
-    class ClaimsAdministrator
-      include DaisybillApi::Ext::Attributes
+    class ClaimsAdministrator < DaisybillApi::Models::Base
+      rest_actions :index
 
       attribute :id, :integer, readonly: true
       attributes(

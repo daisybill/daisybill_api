@@ -28,7 +28,6 @@ shared_examples_for DaisybillApi::Ext::Associations::BelongsTo do |belongs_to|
     its(:foreign_key) { is_expected.to be }
     it { is_expected.to respond_to(:all).with(1).argument }
     it { expect(subject.index_path(':id:')).to eq "/#{belongs_to.plural_key}/:id:/#{subject.plural_key}" }
-    it { expect(subject.create({}).errors[subject.foreign_key]).to have(1).item }
   end
 
   context 'InstanceMethods' do

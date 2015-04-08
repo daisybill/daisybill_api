@@ -6,7 +6,7 @@ describe DaisybillApi::Models::BillingProvider do
     physical_address: [:id, :address_1, :address_2, :city, :state, :zip_code],
     pay_to_address: [:id, :address_1, :address_2, :city, :state, :zip_code]
   it_behaves_like DaisybillApi::Ext::Attributes::ReadOnly, :id, :created_at, :updated_at
-  it_behaves_like DaisybillApi::Ext::CRUD, '/billing_providers'
+  it_behaves_like DaisybillApi::Ext::CRUD, :all, :find, '/billing_providers'
   it_behaves_like DaisybillApi::Ext::Associations
   it_behaves_like DaisybillApi::Ext::Associations::HasMany, DaisybillApi::Models::Patient
 end
