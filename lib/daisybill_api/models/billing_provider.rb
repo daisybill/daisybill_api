@@ -15,6 +15,7 @@ module DaisybillApi
       )
 
       has_many :patients, class: 'Patient'
+      has_many :rendering_providers, class: 'RenderingProvider'
     end
   end
 end
