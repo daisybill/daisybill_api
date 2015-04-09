@@ -28,7 +28,7 @@ module DaisybillApi
           @prefix_path = path
           @prefix_property = property
           attribute property, :integer, readonly: true
-          validates property, presence: true
+          validates property, presence: true, if: :new_record?
         end
 
         def path_prefix?
