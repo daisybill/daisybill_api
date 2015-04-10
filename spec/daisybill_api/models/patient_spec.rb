@@ -8,7 +8,6 @@ describe DaisybillApi::Models::Patient do
     :review_status, review_errors: :collection
   it_behaves_like DaisybillApi::Ext::CRUD, :all, :find, :create, :update, '/patients',
     billing_provider_id: '/billing_providers'
-  it_behaves_like DaisybillApi::Ext::Associations
-  it_behaves_like DaisybillApi::Ext::Associations::BelongsTo, DaisybillApi::Models::BillingProvider
-  it_behaves_like DaisybillApi::Ext::Associations::HasMany, DaisybillApi::Models::Injury
+  it_behaves_like DaisybillApi::Ext::Associations, :injuries
+  it_behaves_like DaisybillApi::Ext::Links, billing_provider: DaisybillApi::Models::BillingProvider
 end

@@ -1,4 +1,5 @@
 require 'daisybill_api/ext/attributes'
+require 'daisybill_api/ext/links'
 require 'daisybill_api/ext/crud'
 require 'daisybill_api/ext/associations'
 
@@ -8,8 +9,9 @@ module DaisybillApi
       def extended(base)
         base.class_eval do
           include DaisybillApi::Ext::Attributes
+          include DaisybillApi::Ext::Links
           include DaisybillApi::Ext::CRUD
-          include  DaisybillApi::Ext::Associations
+          include DaisybillApi::Ext::Associations
         end
       end
     end

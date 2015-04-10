@@ -20,7 +20,7 @@ module DaisybillApi
         employer: DaisybillApi::Models::Employer
       )
 
-      belongs_to :patient, class: 'Patient'
+      link :patient, class: 'Patient'
     end
   end
 end

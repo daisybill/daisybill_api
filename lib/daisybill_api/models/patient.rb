@@ -23,8 +23,10 @@ module DaisybillApi
         address: DaisybillApi::Models::Address
       )
 
-      belongs_to :billing_provider, class: 'BillingProvider'
       has_many :injuries, class: 'Injury'
+
+      link :billing_provider, class: 'BillingProvider'
     end
   end
 end
+

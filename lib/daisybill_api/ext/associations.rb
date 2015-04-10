@@ -17,15 +17,6 @@ module DaisybillApi
           end
         end
 
-        def belongs_to(name, options = {})
-          self.foreign_key = fk = options[:foreign_key] || :"#{name}_id"
-
-          clazz = modulize options[:class]
-          define_method name do
-            clazz.constantize.find(self.send fk)
-          end
-        end
-
         private
 
         def modulize(name)
