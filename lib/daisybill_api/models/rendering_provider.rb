@@ -17,7 +17,7 @@ module DaisybillApi
         active: :boolean
       )
 
-      belongs_to :billing_provider, class: 'BillingProvider'
+      link :billing_provider, class: 'BillingProvider'
     end
   end
 end

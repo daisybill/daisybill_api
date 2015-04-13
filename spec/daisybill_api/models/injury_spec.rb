@@ -9,5 +9,5 @@ describe DaisybillApi::Models::Injury do
   it_behaves_like DaisybillApi::Ext::CRUD, :all, :find, :create, :update, '/injuries',
     patient_id: '/patients'
   it_behaves_like DaisybillApi::Ext::Associations
-  it_behaves_like DaisybillApi::Ext::Associations::BelongsTo, DaisybillApi::Models::Patient
+  it_behaves_like DaisybillApi::Ext::Links, patient: DaisybillApi::Models::Patient
 end

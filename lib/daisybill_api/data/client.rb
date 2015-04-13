@@ -9,6 +9,13 @@ module DaisybillApi
       class UnauthorizedError < Exception
       end
 
+      def self.build(method, path, params = {})
+        client = new method, path, params
+        raise InternalServerError.new(client.response['error']) if client.error?
+        raise UnauthorizedError.new(client.response['error']) if client.unauthorized?
+        client
+      end
+
       attr_reader :response, :request
 
       def initialize(method, path, params = {})

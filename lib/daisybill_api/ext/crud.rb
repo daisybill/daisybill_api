@@ -64,10 +64,7 @@ module DaisybillApi
         end
 
         def client(method, path, params = {})
-          client = DaisybillApi::Data::Client.new method, path, params
-          raise DaisybillApi::Data::Client::InternalServerError.new(client.response['error']) if client.error?
-          raise DaisybillApi::Data::Client::UnauthorizedError.new(client.response['error']) if client.unauthorized?
-          client
+          DaisybillApi::Data::Client.build method, path, params
         end
 
         private
