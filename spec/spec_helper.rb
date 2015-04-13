@@ -52,6 +52,8 @@ def generate_attribute(type)
       Date.new(rand(15) + 2000, rand(12) + 1, rand(28) + 1)
     when :datetime
       DateTime.new
+    when :boolean
+      rand(2) == 0
     else
       raise "Unknown Attribute Type: #{type.inspect}"
   end

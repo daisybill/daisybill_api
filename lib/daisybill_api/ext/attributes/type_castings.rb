@@ -16,6 +16,8 @@ module DaisybillApi
                 to_date(value)
               when :datetime
                 to_datetime(value)
+              when :boolean
+                to_boolean(value)
               else
                 raise 'Unknown Type'
             end
@@ -39,6 +41,10 @@ module DaisybillApi
 
           def to_string(value)
             value.to_s rescue nil
+          end
+
+          def to_boolean(value)
+            !!value
           end
 
           def to_class(attributes, type)

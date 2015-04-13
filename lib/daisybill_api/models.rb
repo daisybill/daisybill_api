@@ -5,6 +5,7 @@ require 'daisybill_api/models/claims_administrator'
 require 'daisybill_api/models/billing_provider'
 require 'daisybill_api/models/patient'
 require 'daisybill_api/models/injury'
+require 'daisybill_api/models/rendering_provider'
 
 module DaisybillApi
   module Models
