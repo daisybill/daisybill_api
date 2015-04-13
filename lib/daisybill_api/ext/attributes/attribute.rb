@@ -9,6 +9,7 @@ module DaisybillApi
           @name = name.to_s
           @type = type
           @options = options
+          @value = [] if collection?
         end
 
         def value=(value)
@@ -24,7 +25,11 @@ module DaisybillApi
         end
 
         def param_value
-          simple_type? ? value : (value && value.to_params)
+          if collection?
+            simple_collection? ? value : value.map(&:to_params)
+          else
+            simple_type? ? value : (value && value.to_params)
+          end
         end
 
         def to_param
@@ -35,6 +40,14 @@ module DaisybillApi
 
         def simple_type?
           type.is_a? Symbol
+        end
+
+        def collection?
+          type.is_a? Array
+        end
+
+        def simple_collection?
+          collection? && type.first.is_a?(Symbol)
         end
       end
     end

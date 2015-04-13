@@ -34,10 +34,7 @@ end
 def generate_attributes(attributes, for_class)
   attributes.each_with_object({}) { |name, result|
     if name.is_a? Hash
-      name.each { |attr, attrs|
-        type = for_class.attrs[attr.to_s].type
-        result[attr] = generate_attributes attrs, type
-      }
+      name.each { |attr, type| result[attr] = type == :collection ? [] : {} }
     else
       type = for_class.attrs[name.to_s].type
       result[name] = generate_attribute type
