@@ -74,6 +74,10 @@ shared_examples_for DaisybillApi::Ext::CRUD do |*methods, path_or_prefix| #TODO:
 
           it { expect{described_class.create(attributes)}.to raise_error(error).with_message(message) }
         end
+
+        if prefix
+          it { expect(subject.create().errors[property]).to have(1).error }
+        end
       end
     end
 
@@ -151,29 +155,34 @@ shared_examples_for DaisybillApi::Ext::CRUD do |*methods, path_or_prefix| #TODO:
     it { is_expected.to_not be_destroyed }
 
     if methods.include? :update
-      context 'when record invalid' do
-        let(:status) { 400 }
-        let(:response) { { 'errors' => { 'record' => %w(invalid outdated) } } }
+      context '.update' do
+        before { subject.id = 13666 }
 
-        before do
-          subject.attributes = attributes.merge id: 'id' if prefix
-          subject.update
+        context 'when record invalid' do
+          let(:status) { 400 }
+          let(:response) { { 'errors' => { 'record' => %w(invalid outdated) } } }
+
+          before { subject.update }
+
+          it { is_expected.to be_invalid }
+          it { expect(subject.errors[:record]).to have(2).items }
         end
 
-        it { is_expected.to be_invalid }
-        it { expect(subject.errors[:record]).to have(2).items }
-      end
+        context 'when was set external errors' do
+          let(:status) { 200 }
+          let(:response) { {} }
 
-      context 'when was set external errors' do
-        let(:status) { 200 }
-        let(:response) { {} }
+          before { subject.external_errors = { record: ['invalid'] } }
 
-        before do
-          subject.attributes = attributes.merge id: 'id' if prefix
-          subject.external_errors = { record: ['invalid'] }
+          its(:update) { is_expected.to be_truthy }
         end
 
-        its(:update) { is_expected.to be_truthy }
+        if prefix
+          it 'when prefix property was not set' do
+            subject.update
+            expect(subject.errors[property]).to be_empty
+          end
+        end
       end
     end
   end
