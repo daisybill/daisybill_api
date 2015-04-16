@@ -25,7 +25,7 @@ module DaisybillApi
         data = {
           method: method,
           url: url,
-          payload: params.to_json,
+          payload: params,
           headers: { 'Content-Type' => 'application/json' }
         }
         RestClient::Request.execute(data) { |response, request, status|

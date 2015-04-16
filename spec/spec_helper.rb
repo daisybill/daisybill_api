@@ -54,6 +54,8 @@ def generate_attribute(type)
       DateTime.new
     when :boolean
       rand(2) == 0
+    when :attachment
+      File.open(__FILE__)
     else
       raise "Unknown Attribute Type: #{type.inspect}"
   end
