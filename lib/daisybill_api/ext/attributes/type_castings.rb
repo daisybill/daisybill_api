@@ -1,3 +1,5 @@
+require 'open-uri'
+
 module DaisybillApi
   module Ext
     module Attributes
@@ -18,6 +20,8 @@ module DaisybillApi
                 to_datetime(value)
               when :boolean
                 to_boolean(value)
+              when :attachment
+                to_attachment(value)
               else
                 raise 'Unknown Type'
             end
@@ -55,6 +59,11 @@ module DaisybillApi
           def to_array(values, type)
             return [] if values.nil?
             values.map { |value| convert_to value, type }
+          end
+
+          def to_attachment(value)
+            return open(value) if value.is_a? String
+            value if value.is_a?(StringIO) || value.kind_of?(IO)
           end
         end
       end
