@@ -26,6 +26,12 @@ describe DaisybillApi::Ext::Attributes::TypeCastings do
   it { expect(converter.convert_to(nil, :datetime)).to be_nil }
   it { expect(converter.convert_to({}, DaisybillApi::Models::Address)).to be_a DaisybillApi::Models::Address }
 
+  context 'attachment', vcr: true do
+    it { expect(converter.convert_to(nil, :attachment)).to be_nil }
+    it { expect(converter.convert_to('http://path.to/attachment', :attachment)).to be_a StringIO }
+    it { expect(converter.convert_to(File.open(__FILE__), :attachment)).to be_a File }
+  end
+
   context 'convert collection of hashes to collection of models' do
     let(:clazz) { DaisybillApi::Models::Address }
     subject { converter.convert_to([{}, {}, {}], [clazz]) }

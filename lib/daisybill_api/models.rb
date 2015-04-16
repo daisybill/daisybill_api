@@ -8,6 +8,7 @@ require 'daisybill_api/models/patient'
 require 'daisybill_api/models/place_of_service'
 require 'daisybill_api/models/referring_provider'
 require 'daisybill_api/models/rendering_provider'
+require 'daisybill_api/models/attachment'
 
 module DaisybillApi
   module Models
