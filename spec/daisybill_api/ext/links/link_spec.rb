@@ -1,18 +1,21 @@
 require 'spec_helper'
 
 describe DaisybillApi::Ext::Links::Link do
-  subject { described_class.new :billing_provider, 'DaisybillApi::Models::BillingProvider' }
+  subject { described_class.new :rendering_provider, 'DaisybillApi::Models::RenderingProvider' }
 
   let(:status) { 200 }
   let(:response) { {} }
+  let(:model) { DaisybillApi::Models::Bill.new }
 
   before do
-    subject.href = '/api/v1/some/url'
+    subject.object = model
+    subject.href = '/api/v1/some/url/13666'
     client = doubled_client status, response
     allow(DaisybillApi::Data::Client).to receive(:new).and_return(client)
   end
 
-  its(:value) { is_expected.to be_a DaisybillApi::Models::BillingProvider }
+  it { expect(model.rendering_provider_id).to eq 13666 }
+  its(:value) { is_expected.to be_a DaisybillApi::Models::RenderingProvider }
 
   it 'when href is nil' do
     subject.href = nil
@@ -20,7 +23,7 @@ describe DaisybillApi::Ext::Links::Link do
   end
 
   it 'must send data to correct url' do
-    expect(DaisybillApi::Data::Client).to receive(:new).with(:get, '/some/url', {})
+    expect(DaisybillApi::Data::Client).to receive(:new).with(:get, '/some/url/13666', {})
     subject.value
   end
 

@@ -28,13 +28,13 @@ describe DaisybillApi::Ext::Attributes::Attribute do
       it { is_expected.to eq 'description_attributes' }
     end
 
-    context 'when type is collection' do
+    context 'when type is a simple collection' do
       let(:type) { [:integer] }
 
-      it { is_expected.to eq 'description_attributes' }
+      it { is_expected.to eq 'description' }
     end
 
-    context 'when it is a collection type' do
+    context 'when type is a collection of models' do
       let(:type) { [DaisybillApi::Models::Address] }
 
       it { is_expected.to eq 'description_attributes' }

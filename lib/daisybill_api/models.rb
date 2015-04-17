@@ -9,6 +9,8 @@ require 'daisybill_api/models/place_of_service'
 require 'daisybill_api/models/referring_provider'
 require 'daisybill_api/models/rendering_provider'
 require 'daisybill_api/models/attachment'
+require 'daisybill_api/models/service_line_item'
+require 'daisybill_api/models/bill'
 
 module DaisybillApi
   module Models

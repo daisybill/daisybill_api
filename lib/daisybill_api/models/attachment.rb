@@ -15,6 +15,8 @@ module DaisybillApi
         report_type: :string,
         document: :attachment
       )
+
+      link :bill, class: 'Bill', foreign_key: false
     end
   end
 end
