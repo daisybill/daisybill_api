@@ -1,7 +1,7 @@
 module DaisybillApi
   module Ext
     module Attributes
-      module ReadOnly
+      module SendAs
       end
     end
   end
@@ -11,21 +11,15 @@ shared_examples_for DaisybillApi::Ext::Attributes do |*attributes|
   let(:attributes_hash) { generate_attributes attributes, described_class }
   subject { described_class.new attributes_hash }
 
-  describe '#to_params' do
-    subject { super().to_params }
-
-    described_class.attrs.each { |name, attr|
-      unless attr.readonly?
-        if attr.type.is_a? Class
-          its(["#{name}_attributes"]) { is_expected.to be_a Hash }
-        else
-          it { is_expected.to include name }
-        end
-      end
-    }
-  end
-
   it { expect{ described_class.new( unknown_attribute: 'any value') }.to_not raise_error }
+  it 'should not have extra attributes' do
+    if attributes.last.is_a?(Hash)
+      attrs = attributes.last.keys.map(&:to_s) + attributes[0..-2].map(&:to_s)
+    else
+      attrs = attributes.map(&:to_s)
+    end
+    expect(subject.attributes.keys - attrs.uniq).to be_empty
+  end
   attributes.each do |name|
     if name.is_a? Hash
       name.each { |attr, type|
@@ -47,19 +41,12 @@ shared_examples_for DaisybillApi::Ext::Attributes do |*attributes|
   end
 end
 
-shared_examples_for DaisybillApi::Ext::Attributes::ReadOnly do |*attributes|
-  describe '#to_params' do
-    let(:attributes_hash) { generate_attributes attributes, described_class }
-    subject { described_class.new(attributes_hash).to_params }
+shared_examples_for DaisybillApi::Ext::Attributes::SendAs do |*attributes|
+  let(:attributes_hash) { {} } #generate_attributes attributes, described_class }
+  subject { described_class.new(attributes_hash).to_params }
 
-    attributes.each { |attr|
-      if attr.is_a?(Hash)
-        attr.each { |name|
-          it { is_expected.to_not include "#{name}_attributes" }
-        }
-      else
-        it { is_expected.to_not include attr }
-      end
-    }
+  it { is_expected.to have(attributes.size).items }
+  attributes.each do |attribute|
+    it { is_expected.to include attribute.to_s }
   end
 end

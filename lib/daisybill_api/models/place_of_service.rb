@@ -18,11 +18,11 @@ module DaisybillApi
         active: :boolean,
         authorization_telephone_number: :string,
         authorization_fax_number: :string,
-        place_of_service_type: :string,
+        place_of_service_type_code: :string,
         address: DaisybillApi::Models::Address
       )
 
-      link :billing_provider, class: 'BillingProvider'
+      link :billing_provider, class: 'BillingProvider', foreign_key: false
     end
   end
 end

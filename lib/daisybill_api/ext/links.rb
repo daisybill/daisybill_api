@@ -6,7 +6,8 @@ module DaisybillApi
       module ClassMethods
         def link(name, options = {})
           clazz = modulize options[:class]
-          links[name] = Link.new name, clazz
+          links[name] = l = Link.new name, clazz, options
+          attribute l.foreign_key, :integer if l.foreign_key?
           define_method(name) { read_link(name).value }
         end
 
@@ -17,9 +18,13 @@ module DaisybillApi
 
       module InstanceMethods
         def initialize(attributes)
-          class_links.each { |link| links[link.name] = link.clone }
-          self.links = attributes.delete 'links'
+          lnks = attributes.delete 'links'
           super(attributes)
+          class_links.each do |link|
+            links[link.name] = l = link.clone
+            l.object = self
+          end
+          self.links = lnks
         end
 
         def links=(values)

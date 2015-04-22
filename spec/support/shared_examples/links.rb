@@ -31,6 +31,7 @@ shared_examples_for DaisybillApi::Ext::Links do |links = {}|
     context 'when links are passed' do
       let(:collection) { links.map { |name, _| { 'rel' => name.to_s, 'href' => '/some/url' } } }
 
+      it { expect{ described_class.new({ 'links' => collection }) }.to_not raise_error }
       links.each do |name, type|
         its(name) { is_expected.to be_a type }
       end

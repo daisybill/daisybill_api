@@ -22,6 +22,8 @@ module DaisybillApi
                 to_boolean(value)
               when :attachment
                 to_attachment(value)
+              when :float
+                to_float(value)
               else
                 raise 'Unknown Type'
             end
@@ -49,6 +51,10 @@ module DaisybillApi
 
           def to_boolean(value)
             !!value
+          end
+
+          def to_float(value)
+            value.to_f rescue nil
           end
 
           def to_class(attributes, type)

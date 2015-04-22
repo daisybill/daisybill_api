@@ -35,9 +35,8 @@ def generate_attributes(attributes, for_class)
   attributes.each_with_object({}) { |name, result|
     if name.is_a? Hash
       name.each { |attr, type| result[attr] = type == :collection ? [] : {} }
-    else
-      type = for_class.attrs[name.to_s].type
-      result[name] = generate_attribute type
+    elsif attr = for_class.attrs[name.to_s]
+      result[name] = generate_attribute attr.type
     end
   }
 end
@@ -56,6 +55,8 @@ def generate_attribute(type)
       rand(2) == 0
     when :attachment
       File.open(__FILE__)
+    when :float
+      (rand * (rand(20) + 1)).round(2)
     else
       raise "Unknown Attribute Type: #{type.inspect}"
   end

@@ -13,7 +13,7 @@ module DaisybillApi
       attributes(
         first_name: :string,
         last_name: :string,
-        mi: :string,
+        middle_initial: :string,
         suffix: :string,
         gender: :string,
         practice_internal_id: :string,
@@ -25,7 +25,7 @@ module DaisybillApi
 
       has_many :injuries, class: 'Injury'
 
-      link :billing_provider, class: 'BillingProvider'
+      link :billing_provider, class: 'BillingProvider', foreign_key: false
     end
   end
 end

@@ -3,9 +3,10 @@ module DaisybillApi
     class ClaimsAdministrator < DaisybillApi::Models::Base
       rest_actions :index
 
-      attribute :id, :integer, readonly: true
       attributes(
-        name: :string
+        id: :integer,
+        name: :string,
+        readonly: true
       )
     end
   end

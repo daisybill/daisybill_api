@@ -21,7 +21,11 @@ module DaisybillApi
         end
 
         def param_name
-          simple_type? ? name : "#{name}_attributes"
+          if collection?
+            simple_collection? ? name : "#{name}_attributes"
+          else
+            simple_type? ? name : "#{name}_attributes"
+          end
         end
 
         def param_value
