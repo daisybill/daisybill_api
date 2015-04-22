@@ -32,6 +32,9 @@ module DaisybillApi
       link :rendering_provider, class: 'RenderingProvider'
       link :referring_provider, class: 'ReferringProvider'
       link :supervising_provider, class: 'RenderingProvider'
+
+      has_many :bill_submissions, class: 'BillSubmission'
+      has_many :attachments, class: 'Attachment'
     end
   end
 end
