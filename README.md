@@ -37,7 +37,7 @@ gem 'daisybill_api'
 - Bill Submissions
 
 ```ruby
-DaisybillAPI.token = 'API_TOKEN'
+DaisybillApi.configuration.api_token = 'API_TOKEN'
 
 # List Billing Providers
 DaisybillApi::BillingProvider.all
@@ -68,6 +68,13 @@ DaisybillApi::Bill.create(injury_id: 1, date_of_service: '2015-01-01', rendering
 
 # Get a specific Bill
 DaisybillApi::Bill.find(1)
+
+# Create Bill
+bp = DaisybillApi::Models::BillingProvider.find(14)
+pos = bp.places_of_service.first
+sli = DaisybillApi::Models::ServiceLineItem.new(procedure_code: "99215", units: "1", diagnosis_code_1: "72700")
+bill = DaisybillApi::Models::Bill.new(injury_id: injury.id, place_of_service_id: pos.id, date_of_service: "2015-01-01", service_line_items: [sli], diagnosis_codes: ["72700"])
+
 ```
 
 ## Contributing
