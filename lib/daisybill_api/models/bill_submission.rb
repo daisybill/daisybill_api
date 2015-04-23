@@ -1,7 +1,7 @@
 module DaisybillApi
   module Models
     class BillSubmission < DaisybillApi::Models::Base
-      rest_actions :index, :show
+      rest_actions :index, :show, :create
       path_prefix '/bills', :bill_id
 
       attributes(
