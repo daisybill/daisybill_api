@@ -2,7 +2,6 @@ module DaisybillApi
   module Models
     class ServiceLineItem < DaisybillApi::Models::Base
       attributes(
-        id: :integer,
         charge_cents: :integer,
         expected_payment_cents: :integer,
         allowed_cents: :integer,
@@ -13,6 +12,7 @@ module DaisybillApi
       )
 
       attributes(
+        id: :integer,
         procedure_code: :string,
         units: :float,
         supplemental_data: :string,
