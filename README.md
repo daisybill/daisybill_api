@@ -26,65 +26,95 @@ gem 'daisybill_api'
 
 ## Usage
 #### Available endpoints:
-- Billing Providers
-- Rendering Providers
-- Referring Providers
-- Places of Service
-- Patients
-- Injuries
-- Bills
-- Attachments
-- Bill Submissions
+- Billing Providers (index, show)
+- Rendering Providers (index, show, create, update)
+- Referring Providers (index, show, create, update)
+- Places of Service (index, show, create, update)
+- Patients (index, show, create, update)
+- Injuries (index, show, create, update)
+- Bills (index, show, create, update)
+- Attachments (index, show, create, update)
+- Bill Submissions (index, show, create)
+- Bill Payments (index)
 
 ```ruby
 DaisybillApi.configuration.api_token = 'API_TOKEN'
 
 # List Billing Providers
-DaisybillApi::BillingProvider.all
+DaisybillApi::Models::BillingProvider.all
 
 # Get specific Billing Provider
-DaisybillApi::BillingProvider.find(1)
+DaisybillApi::Models::BillingProvider.find(123)
 
 # List of Rendering Providers for Billing Provider
-billing_provider = DaisybillApi::BillingProvider.find(1)
-billing_provdier.rendering_providers
+billing_provider = DaisybillApi::Models::BillingProvider.find(1)
+billing_provider.rendering_providers
+
+# List of Places of Service for Billing Provider
+billing_provider = DaisybillApi::Models::BillingProvider.find(1)
+billing_provider.places_of_service
+
+# List Patients for Billing Provider
+billing_provider = DaisybillApi::Models::BillingProvider.find(14)
+billing_provider.patients
 
 # Create Patient
-DaisybillApi::Patient.create(billing_provider_id: 1, first_name: "Johnny", last_name: "Apple")
+pt = DaisybillApi::Models::Patient.new(billing_provider_id: 14, first_name: "Johnny")
+pt.save
+
+# inspect errors
+pt.errors.full_messages
+=> ["Last name can't be blank"]
 
 # Get list of injuries for a patient
-patient = DaisybillApi::Patient.find(1)
+patient = DaisybillApi::Models::Patient.find(345)
 patient.injuries
 
 # Create Injury
-DaisybillApi::Injury.create(patient_id: 1, description: 'Broken Arm', claim_number: '1234567')
+injury = DaisybillApi::Models::Injury.new(patient_id: 345, description: 'Broken Arm', claim_number: '1234567')
+injury.save
 
 # List of Bills for an Injury
-injury = DaisybillApi::Injury.find(1)
+injury = DaisybillApi::Models::Injury.find(333)
 injury.bills
 
-# Create Bill
-DaisybillApi::Bill.create(injury_id: 1, date_of_service: '2015-01-01', rendering_provider_id: 1, place_of_service_id: 1)
-
 # Get a specific Bill
-DaisybillApi::Bill.find(1)
+DaisybillApi::Models::Bill.find(345)
 
 # Create Bill
 bp = DaisybillApi::Models::BillingProvider.find(14)
 pos = bp.places_of_service.first
-sli = DaisybillApi::Models::ServiceLineItem.new(procedure_code: "99215", units: "1", diagnosis_code_1: "72700")
-bill = DaisybillApi::Models::Bill.new(injury_id: injury.id, place_of_service_id: pos.id, date_of_service: "2015-01-01", service_line_items: [sli], diagnosis_codes: ["72700"])
+rp = bp.rendering_providers.first
+sli = DaisybillApi::Models::ServiceLineItem.new(procedure_code: "L3908", units: 1, diagnosis_code_1: "72700")
+bill = DaisybillApi::Models::Bill.new(
+  injury_id: 345,
+  date_of_service: '2015-01-01',
+  rendering_provider_id: rp.id,
+  place_of_service_id: pos.id,
+  diagnosis_codes: ["72700"],
+  service_line_items: [sli]
+)
 
+bill.save
+
+# Create Bill Submission for Bill
+bill = DaisybillApi::Models::Bill.find(386315)
+bill_submission = DaisybillApi::Models::BillSubmission.new(bill_id: bill.id)
+bill_submission.create
+
+# Get list of bill payments for bill
+bill = DaisybillApi::Bill.find(1)
+bp = bill.bill_payments.first
 ```
 
 ## Contributing
 1. Fork the project.
 2. Create a topic branch and preface with issue number if available. E.g, `4_undefined_method_name_for_nil_class`
-3. Implement feature or bug fix.
-4. Add specs for your feature or bug fix.
-5. Run `bundle exec rake spec`. If your changes are not 100% covered, please go back to step 6.
+3. Implement feature or bug fix
+4. If specs were not added in step 3, add then now.
+5. Run `bundle exec rspec spec`.
 6. Commit and push your changes.
-7. Submit a pull request. Please do not include changes to the gemspec or version.
+7. Submit a pull request. Please do not include changes to the gemspec or version file.
 
 ## License
 *This project uses the MIT-LICENSE.*
