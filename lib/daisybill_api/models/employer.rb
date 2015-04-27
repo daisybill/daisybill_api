@@ -4,6 +4,7 @@ module DaisybillApi
       include DaisybillApi::Ext::Attributes
 
       attributes(
+        id: :integer,
         name: :string,
         address: DaisybillApi::Models::Address
       )
