@@ -104,7 +104,14 @@ DaisybillApi::Models::Bill.find(345)
 bp = DaisybillApi::Models::BillingProvider.find(14)
 pos = bp.places_of_service.first
 rp = bp.rendering_providers.first
-sli = DaisybillApi::Models::ServiceLineItem.new(procedure_code: "L3908", units: 1, diagnosis_code_1: "72700")
+
+sli = DaisybillApi::Models::ServiceLineItem.new(
+  procedure_code: "S9981",
+  units: 1,
+  diagnosis_code_1: "72700",
+  custom_unit_charge_cents: 12345
+)
+
 bill = DaisybillApi::Models::Bill.new(
   injury_id: 345,
   date_of_service: '2015-01-01',
