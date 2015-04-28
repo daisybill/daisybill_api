@@ -1,5 +1,5 @@
 require 'rest-client'
-require 'daisybill_api/data/rest_client/payload_base'
+require 'daisybill_api/data/rest_client/payload'
 
 module DaisybillApi
   module Data

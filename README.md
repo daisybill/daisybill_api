@@ -44,14 +44,14 @@ DaisybillApi.configuration.api_token = 'API_TOKEN'
 DaisybillApi::Models::BillingProvider.all
 
 # Get specific Billing Provider
-DaisybillApi::Models::BillingProvider.find(123)
+DaisybillApi::Models::BillingProvider.find(14)
 
 # List of Rendering Providers for Billing Provider
-billing_provider = DaisybillApi::Models::BillingProvider.find(1)
+billing_provider = DaisybillApi::Models::BillingProvider.find(14)
 billing_provider.rendering_providers
 
 # List of Places of Service for Billing Provider
-billing_provider = DaisybillApi::Models::BillingProvider.find(1)
+billing_provider = DaisybillApi::Models::BillingProvider.find(14)
 billing_provider.places_of_service
 
 # List Patients for Billing Provider
@@ -59,10 +59,29 @@ billing_provider = DaisybillApi::Models::BillingProvider.find(14)
 billing_provider.patients
 
 # Create Patient
-pt = DaisybillApi::Models::Patient.new(billing_provider_id: 14, first_name: "Johnny")
+address = DaisybillApi::Models::Address.new(
+  address_1: "1 Main Street",
+  address_2: "Apt 3C",
+  city: "Los Angeles",
+  state: "CA",
+  zip_code: "90001"
+)
+
+pt = DaisybillApi::Models::Patient.new(
+  billing_provider_id: 14,
+  first_name: "Johnny",
+  last_name: "Smith",
+  address: address,
+  ssn: "123456789",
+  gender: "Male"
+)
+
 pt.save
+=> true
 
 # inspect errors
+pt = DaisybillApi::Models::Patient.new(billing_provider_id: 14, first_name: "Johnny")
+pt.save
 pt.errors.full_messages
 => ["Last name can't be blank"]
 
@@ -105,6 +124,14 @@ bill_submission.create
 # Get list of bill payments for bill
 bill = DaisybillApi::Bill.find(1)
 bp = bill.bill_payments.first
+
+# Create attachment for Bill
+DaisybillApi::Models::Attachment.create(
+  bill_id: 5600,
+  report_type: "09",
+  document: File.open("path/to/file")
+)
+
 ```
 
 ## Contributing
