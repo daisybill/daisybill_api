@@ -110,8 +110,8 @@ module DaisybillApi
 
         private
 
-        def client(method, url, data)
-          self.class.client method, url, data
+        def client(method, path, params = {})
+          self.class.client method, path, params
         end
 
         def send_data(method, url)
