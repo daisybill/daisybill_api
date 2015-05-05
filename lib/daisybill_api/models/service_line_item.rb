@@ -7,7 +7,6 @@ module DaisybillApi
         allowed_cents: :integer,
         balance_due_cents: :integer,
         write_off_cents: :integer,
-        modifiers: [:string],
         readonly: true
       )
 
@@ -15,6 +14,7 @@ module DaisybillApi
         id: :integer,
         procedure_code: :string,
         units: :float,
+        modifier_codes: [:string],
         supplemental_data: :string,
         diagnosis_code_1: :string,
         diagnosis_code_2: :string,
