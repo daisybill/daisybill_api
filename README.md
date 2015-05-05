@@ -30,10 +30,10 @@ gem 'daisybill_api'
 - Rendering Providers (index, show, create, update)
 - Referring Providers (index, show, create, update)
 - Places of Service (index, show, create, update)
-- Patients (index, show, create, update)
-- Injuries (index, show, create, update)
-- Bills (index, show, create, update)
-- Attachments (index, show, create, update)
+- Patients (index, show, create, update, destroy)
+- Injuries (index, show, create, update, destroy)
+- Bills (index, show, create, update, destroy)
+- Attachments (index, show, create, update, destroy)
 - Bill Submissions (index, show, create)
 - Bill Payments (index)
 
@@ -140,6 +140,8 @@ DaisybillApi::Models::Attachment.create(
   document: File.open("path/to/file")
 )
 
+# Destroy Bill
+bill.destroy
 ```
 
 ## Contributing

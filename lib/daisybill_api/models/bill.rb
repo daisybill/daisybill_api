@@ -2,7 +2,7 @@ module DaisybillApi
   module Models
     class Bill < DaisybillApi::Models::Base
       path_prefix '/injuries', :injury_id
-      rest_actions :index, :show, :create, :update
+      rest_actions :index, :show, :create, :update, :destroy
 
       attributes(
         id: :integer,
