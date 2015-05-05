@@ -108,6 +108,7 @@ rp = bp.rendering_providers.first
 sli = DaisybillApi::Models::ServiceLineItem.new(
   procedure_code: "S9981",
   units: 1,
+  modifier_codes: ["93", "17"],
   diagnosis_code_1: "72700",
   custom_unit_charge_cents: 12345
 )
