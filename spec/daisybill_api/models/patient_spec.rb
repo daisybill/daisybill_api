@@ -6,7 +6,7 @@ describe DaisybillApi::Models::Patient do
     :billing_provider_id, :review_status, review_errors: :collection, address: :model
   it_behaves_like DaisybillApi::Ext::Attributes::SendAs, :first_name, :last_name, :gender, :date_of_birth,
     :ssn, :address_attributes, :suffix, :middle_initial, :practice_internal_id, :telephone
-  it_behaves_like DaisybillApi::Ext::CRUD, :all, :find, :create, :update, '/patients',
+  it_behaves_like DaisybillApi::Ext::CRUD, :all, :find, :create, :update, :destroy, '/patients',
     billing_provider_id: '/billing_providers'
   it_behaves_like DaisybillApi::Ext::Associations, :injuries
   it_behaves_like DaisybillApi::Ext::Links, billing_provider: DaisybillApi::Models::BillingProvider

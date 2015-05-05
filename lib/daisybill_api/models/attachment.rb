@@ -1,7 +1,7 @@
 module DaisybillApi
   module Models
     class Attachment < DaisybillApi::Models::Base
-      rest_actions :index, :create, :update, :show
+      rest_actions :index, :create, :update, :show, :destroy
       path_prefix '/bills', :bill_id
 
       attributes(
