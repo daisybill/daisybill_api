@@ -2,6 +2,7 @@ require 'daisybill_api/ext/attributes'
 require 'daisybill_api/ext/links'
 require 'daisybill_api/ext/crud'
 require 'daisybill_api/ext/associations'
+require 'daisybill_api/ext/pageable_collection'
 
 module DaisybillApi
   module Ext

@@ -12,8 +12,9 @@ module DaisybillApi
 
         def has_many(name, options = {})
           clazz = modulize options[:class]
-          define_method name do
-            clazz.constantize.all(self.id)
+          define_method name do |params = {}|
+            params.merge!(:"#{self.class.singular_key}_id" => self.id)
+            clazz.constantize.all(params)
           end
         end
 

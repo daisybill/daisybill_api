@@ -55,11 +55,11 @@ module DaisybillApi
           "#{path}/#{id}"
         end
 
-        def index_path(*prefix_id)
+        def index_path(prefix_id)
           if path_prefix?
-            index_path_with_prefix(*prefix_id)
+            index_path_with_prefix(prefix_id)
           else
-            index_path_without_prefix(*prefix_id)
+            index_path_without_prefix
           end
         end
 
@@ -82,7 +82,7 @@ module DaisybillApi
         def index_path_without_prefix
           path
         end
-     end
+      end
 
       module InstanceMethods
         def new_record?
