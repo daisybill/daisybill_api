@@ -33,11 +33,11 @@ shared_examples_for DaisybillApi::Ext::CRUD do |*methods, path_or_prefix| #TODO:
     it { is_expected.to respond_to :path_prefix? }
 
     describe 'check methods' do
-      CLASS_METHODS = [:all, :find, :create]
-      (methods & CLASS_METHODS).each do |method|
+      class_methods = [:all, :find, :create]
+      (methods & class_methods).each do |method|
         it { is_expected.to respond_to method }
       end
-      (CLASS_METHODS - methods).each do |method|
+      (class_methods - methods).each do |method|
         it { is_expected.to_not respond_to method }
       end
     end
@@ -135,12 +135,12 @@ shared_examples_for DaisybillApi::Ext::CRUD do |*methods, path_or_prefix| #TODO:
 
       before { subject.attributes = attributes } if prefix
 
-      INSTANCE_METHODS = [:create, :update, :destroy]
-      (methods & INSTANCE_METHODS).each do |method|
+      instance_methods = [:create, :update, :destroy]
+      (methods & instance_methods).each do |method|
         its(method) { is_expected.to be_truthy }
       end
 
-      (INSTANCE_METHODS - methods).each do |method|
+      (instance_methods - methods).each do |method|
         it { is_expected.to_not respond_to method }
       end
 
