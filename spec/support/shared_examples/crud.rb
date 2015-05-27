@@ -21,7 +21,7 @@ shared_examples_for DaisybillApi::Ext::CRUD do |*methods, path_or_prefix| #TODO:
   if prefix
     it { expect(described_class.index_path('prefix-id')).to eq("#{prefix}/prefix-id#{path}") }
   else
-    it { expect(described_class.index_path).to eq path }
+    it { expect(described_class.index_path('id')).to eq path }
   end
 
   describe 'ClassMethods' do
@@ -33,11 +33,11 @@ shared_examples_for DaisybillApi::Ext::CRUD do |*methods, path_or_prefix| #TODO:
     it { is_expected.to respond_to :path_prefix? }
 
     describe 'check methods' do
-      CLASS_METHODS = [:all, :find, :create]
-      (methods & CLASS_METHODS).each do |method|
+      class_methods = [:all, :find, :create]
+      (methods & class_methods).each do |method|
         it { is_expected.to respond_to method }
       end
-      (CLASS_METHODS - methods).each do |method|
+      (class_methods - methods).each do |method|
         it { is_expected.to_not respond_to method }
       end
     end
@@ -118,12 +118,13 @@ shared_examples_for DaisybillApi::Ext::CRUD do |*methods, path_or_prefix| #TODO:
       context '::all' do
         let(:status) { 200 }
         let(:response) { { described_class.plural_key => [{}, {}, {}] } }
-        let(:args) { prefix ? ['id'] : [] }
+        let(:params) { property ? { property.to_sym => '13666'} : {} }
 
-        it { expect(described_class.all(*args)).to have(3).records  }
-        it { expect(described_class.all(*args)).to all( be_a described_class )  }
+        it { expect(described_class.all(params)).to be_a(DaisybillApi::Ext::PageableCollection) }
+        it { expect(described_class.all(params)).to have(3).records  }
+        it { expect(described_class.all(params)).to all( be_a described_class )  }
         if prefix
-          it { expect(described_class.all('13666').map(&:"#{property}")).to all( eq 13666 ) }
+          it { expect(described_class.all(params).map(&:"#{property}")).to all( eq 13666 ) }
         end
       end
     end
@@ -135,12 +136,12 @@ shared_examples_for DaisybillApi::Ext::CRUD do |*methods, path_or_prefix| #TODO:
 
       before { subject.attributes = attributes } if prefix
 
-      INSTANCE_METHODS = [:create, :update, :destroy]
-      (methods & INSTANCE_METHODS).each do |method|
+      instance_methods = [:create, :update, :destroy]
+      (methods & instance_methods).each do |method|
         its(method) { is_expected.to be_truthy }
       end
 
-      (INSTANCE_METHODS - methods).each do |method|
+      (instance_methods - methods).each do |method|
         it { is_expected.to_not respond_to method }
       end
 

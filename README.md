@@ -144,6 +144,24 @@ DaisybillApi::Models::Attachment.create(
 bill.destroy
 ```
 
+# Pagination
+
+`Model.all` returns a `PageableCollection` object which includes enumberable.
+
+```ruby
+@page = injury.bills
+
+@page.first_page
+@page.last_page
+@page.next_page
+@page.previous_page
+
+until @page.next_page.nil? do
+  puts @page.map(&:id)
+  @page = @page.next_page
+end
+```
+
 ## Contributing
 1. Fork the project.
 2. Create a topic branch and preface with issue number if available. E.g, `4_undefined_method_name_for_nil_class`

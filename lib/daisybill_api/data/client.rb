@@ -17,7 +17,7 @@ module DaisybillApi
         client
       end
 
-      attr_reader :response, :request
+      attr_reader :response, :request, :headers
 
       def initialize(method, path, params = {})
         DaisybillApi.logger.info "#{method.to_s.upcase} #{path}"
@@ -30,6 +30,7 @@ module DaisybillApi
           headers: { 'Content-Type' => 'application/json' }
         }
         RestClient::Request.execute(data) { |response, request, status|
+          @headers = response.headers
           @response = JSON.parse response
           @request = request
           @status = status

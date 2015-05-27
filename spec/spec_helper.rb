@@ -18,14 +18,15 @@ RSpec.configure do |config|
   config.before { DaisybillApi.reset_configuration }
 end
 
-def doubled_client(status, response)
+def doubled_client(status, response, headers = {})
   statuses = {
     success?: status == 200,
     bad_request?: status == 400,
     unauthorized?: status == 401,
     not_found?: status == 404,
     error?: status == 500,
-    response: response
+    response: response,
+    headers: headers
   }
 
   double(DaisybillApi::Data::Client, statuses)
