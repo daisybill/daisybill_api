@@ -27,7 +27,7 @@ module DaisybillApi
         service_line_items: [DaisybillApi::Models::ServiceLineItem]
       )
 
-      link :injury, class: 'Injury', foreign_key: false
+      link :injury, class: 'Injury'
       link :place_of_service, class: 'PlaceOfService'
       link :rendering_provider, class: 'RenderingProvider'
       link :referring_provider, class: 'ReferringProvider'

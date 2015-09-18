@@ -12,7 +12,7 @@ module DaisybillApi
         readonly: true
       )
 
-      link :bill, class: 'Bill', foreign_key: false
+      link :bill, class: 'Bill'
     end
   end
 end

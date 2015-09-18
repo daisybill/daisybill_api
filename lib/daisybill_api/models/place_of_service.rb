@@ -22,7 +22,7 @@ module DaisybillApi
         address: DaisybillApi::Models::Address
       )
 
-      link :billing_provider, class: 'BillingProvider', foreign_key: false
+      link :billing_provider, class: 'BillingProvider'
     end
   end
 end
