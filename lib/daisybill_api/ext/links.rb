@@ -20,10 +20,7 @@ module DaisybillApi
         def initialize(attributes)
           lnks = attributes.delete 'links'
           super(attributes)
-          class_links.each do |link|
-            links[link.name] = l = link.clone
-            l.object = self
-          end
+          class_links.each { |link| links[link.name] = link.clone }
           self.links = lnks
         end
 
@@ -41,6 +38,7 @@ module DaisybillApi
         def write_link(name, href)
           if link = links[name.to_sym]
             link.href = href
+            self.send("#{link.foreign_key}=", link.foreign_id) if href && link.foreign_key?
           else
             DaisybillApi.logger.debug "Was trying to set unexisting link #{name.inspect} with #{href.inspect}"
           end

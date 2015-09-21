@@ -5,17 +5,15 @@ describe DaisybillApi::Ext::Links::Link do
 
   let(:status) { 200 }
   let(:response) { {} }
-  let(:model) { DaisybillApi::Models::Bill.new }
 
   before do
-    subject.object = model
-    subject.href = '/api/v1/some/url/13666'
+    subject.href = '/api/v1/some/url/:id'
     client = doubled_client status, response
     allow(DaisybillApi::Data::Client).to receive(:new).and_return(client)
   end
 
-  it { expect(model.rendering_provider_id).to eq 13666 }
   its(:value) { is_expected.to be_a DaisybillApi::Models::RenderingProvider }
+  its(:foreign_id) { is_expected.to eq(':id') }
 
   it 'when href is nil' do
     subject.href = nil
@@ -23,7 +21,7 @@ describe DaisybillApi::Ext::Links::Link do
   end
 
   it 'must send data to correct url' do
-    expect(DaisybillApi::Data::Client).to receive(:new).with(:get, '/some/url/13666', {})
+    expect(DaisybillApi::Data::Client).to receive(:new).with(:get, '/some/url/:id', {})
     subject.value
   end
 

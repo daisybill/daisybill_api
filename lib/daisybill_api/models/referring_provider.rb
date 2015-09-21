@@ -15,7 +15,7 @@ module DaisybillApi
         active: :boolean
       )
 
-      link :billing_provider, class: 'BillingProvider', foreign_key: false
+      link :billing_provider, class: 'BillingProvider'
     end
   end
 end

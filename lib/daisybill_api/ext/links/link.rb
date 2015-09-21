@@ -2,21 +2,13 @@ module DaisybillApi
   module Ext
     module Links
       class Link
-        attr_reader :name, :klass, :href
-        attr_accessor :object
+        attr_accessor :href
+        attr_reader :name, :klass
 
         def initialize(name, klass, options = {})
           @name = name
           @klass = klass
           @options = options
-        end
-
-        def href=(value)
-          @href = value
-          if @href && foreign_key?
-            id = extract_id(value)
-            object.send("#{foreign_key}=", id)
-          end
         end
 
         def value
@@ -31,12 +23,10 @@ module DaisybillApi
         end
 
         def foreign_key?
-          !@options.has_key?(:foreign_key) || @options[:foreign_key]
+          !@options.has_key?(:foreign_key) || !!@options[:foreign_key]
         end
 
-        private
-
-        def extract_id(href)
+        def foreign_id
           href.split('/').last
         end
       end

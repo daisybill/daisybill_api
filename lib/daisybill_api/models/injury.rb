@@ -22,7 +22,7 @@ module DaisybillApi
         employer: DaisybillApi::Models::Employer
       )
 
-      link :patient, class: 'Patient', foreign_key: false
+      link :patient, class: 'Patient'
       has_many :bills, class: 'Bill'
     end
   end
