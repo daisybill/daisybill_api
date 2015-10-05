@@ -121,7 +121,9 @@ module DaisybillApi
 
         def process_response(client)
           if client.success?
-            self.attributes = client.response
+            response = client.response.clone
+            self.links = response.delete 'links'
+            self.attributes = response
             true
           elsif client.bad_request?
             self.external_errors = client.response['errors']
