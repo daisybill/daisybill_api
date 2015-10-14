@@ -186,5 +186,21 @@ shared_examples_for DaisybillApi::Ext::CRUD do |*methods, path_or_prefix| #TODO:
         end
       end
     end
+
+    if methods.include? :destroy
+      context '.destroy' do
+        before { subject.id = 13666 }
+
+        context 'when record invalid' do
+          let(:status) { 400 }
+          let(:response) { { 'errors' => { 'record' => ['can not be destroyed'] } } }
+
+          before { subject.destroy }
+
+          it { is_expected.to be_invalid }
+          it { expect(subject.errors[:record]).to have(1).item }
+        end
+      end
+    end
   end
 end

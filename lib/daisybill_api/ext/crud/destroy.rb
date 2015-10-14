@@ -7,8 +7,7 @@ module DaisybillApi
 
         module InstanceMethods
           def destroy
-            c = client :delete, show_path
-            @destroyed = c.success?
+            @destroyed = send_data :delete, show_path
           end
         end
       end
