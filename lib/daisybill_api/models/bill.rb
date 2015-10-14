@@ -23,6 +23,7 @@ module DaisybillApi
         admission_date: :date,
         practice_bill_id: :string,
         additional_information: :string,
+        diagnosis_type: :string,
         diagnosis_codes: [:string],
         service_line_items: [DaisybillApi::Models::ServiceLineItem]
       )

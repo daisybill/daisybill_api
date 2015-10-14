@@ -10,6 +10,7 @@ module DaisybillApi
         review_status: :string,
         review_errors: [:string],
         diagnosis_codes: [:string],
+        contacts: [DaisybillApi::Models::Contact],
         readonly: true
       )
       attributes(
