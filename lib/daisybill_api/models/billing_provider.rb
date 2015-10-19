@@ -12,6 +12,7 @@ module DaisybillApi
         fax_number: :string,
         physical_address: DaisybillApi::Models::Address,
         pay_to_address: DaisybillApi::Models::Address,
+        dol_provider_number: :string,
         readonly: true
       )
 
