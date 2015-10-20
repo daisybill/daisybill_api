@@ -2,6 +2,7 @@ require 'daisybill_api/ext/links/link'
 
 module DaisybillApi
   module Ext
+    # @private
     module Links
       module ClassMethods
         def link(name, options = {})

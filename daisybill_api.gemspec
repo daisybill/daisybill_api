@@ -26,5 +26,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency  "rspec-its",                  "~> 1.2"
   s.add_development_dependency  "vcr",                        "~> 2.9"
   s.add_development_dependency  "webmock",                    "~> 1.20"
+  s.add_development_dependency  "yard",                       "~> 0.8.7"
 end
 

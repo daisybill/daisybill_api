@@ -1,5 +1,6 @@
 module DaisybillApi
   module Ext
+    # @private
     module Associations
       module ClassMethods #TODO: Think about creating Association classes or Routing class
         def foreign_key=(value)
@@ -32,8 +33,7 @@ module DaisybillApi
         end
       end
 
-      module InstanceMethods
-      end
+      module InstanceMethods; end
     end
   end
 end

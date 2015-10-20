@@ -3,6 +3,7 @@ require 'daisybill_api/ext/attributes/attribute'
 
 module DaisybillApi
   module Ext
+    # @private
     module Attributes
       module ClassMethods
         def attribute(name, type, options = {})
@@ -56,7 +57,7 @@ module DaisybillApi
             if attrs[name.to_sym]
               write_attribute name, value
             else
-              message = "Was trying to set not existing attribute #{name.inspect} to #{value.inspect}"
+              message = "Was trying to set non-existent attribute #{name.inspect} to #{value.inspect}"
               DaisybillApi.logger.debug message
             end
           }

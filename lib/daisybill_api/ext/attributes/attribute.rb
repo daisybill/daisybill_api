@@ -1,5 +1,6 @@
 module DaisybillApi
   module Ext
+    # @private
     module Attributes
       class Attribute
         attr_accessor :name, :type, :options

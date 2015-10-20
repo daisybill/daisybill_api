@@ -1,3 +1,7 @@
 .bundle/
 log/*.log
 *.DS_Store
+
+# Documentation
+.yardoc
+doc/

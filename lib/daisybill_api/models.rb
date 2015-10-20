@@ -16,6 +16,7 @@ require 'daisybill_api/models/bill'
 require 'daisybill_api/models/bill_payment'
 
 module DaisybillApi
+  # @private
   module Models
   end
 end

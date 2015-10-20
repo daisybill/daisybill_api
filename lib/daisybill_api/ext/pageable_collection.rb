@@ -1,5 +1,16 @@
 module DaisybillApi
   module Ext
+
+    # Provides a paginated collection of objects that can iterated upon:
+    #
+    #   bp = DaisybillApi::Models::BillingProvider.find(14) # => <DaisyBillApi::Models::BillingProvider>
+    #   patients = bp.patients # => #<DaisybillApi::Ext::PageableCollection>
+    #
+    #   until patients.next_page.nil? do
+    #     puts patients.map(&:id)
+    #     patients = patients.next_page
+    #   end
+    #   # => [1, 2, 3, 4, 5]
     class PageableCollection
       include Enumerable
 
@@ -18,26 +29,53 @@ module DaisybillApi
         end
       end
 
+      # Returns the first page of the collection
+      #
+      #   @patients = DaisybillApi::Models::Patient.all(billing_provider_id: 25) # => #<DaisybillApi::Ext::PageableCollection>
+      #
+      #   @patients.first_page # => #<DaisybillApi::Ext::PageableCollection>
+      #
+      # @return [PageableCollection]
       def first_page
         resource_class.all(default_options)
       end
 
+      # Returns the last page in the collection
+      #
+      #   @patients.last_page # => #<DaisybillApi::Ext::PageableCollection>
+      #
+      # @return [PageableCollection]
       def last_page
         resource_class.all(default_options.merge(page: total_page_count))
       end
 
+      # Returns the next page in the collection
+      #
+      #  @providers.next_page # => #<DaisybillApi::Ext::PageableCollection>
+      #
+      # @return [PageableCollection, nil]
       def next_page
         if next_page_number
           resource_class.all(default_options.merge(page: next_page_number))
         end
       end
 
+      # Returns the previous page in the collection
+      #
+      #   @providers.previous_page # => #<DaisybillApi::Ext::PageableCollection>
+      #
+      # @return [PageableCollection, nil]
       def previous_page
         if previous_page_number
           resource_class.all(default_options.merge(page: previous_page_number))
         end
       end
 
+      # Returns the current page number
+      #
+      #   @providers.current_page_number # => 1
+      #
+      # @return [Integer]
       def current_page_number
         retrieve_header_value(:x_page)
       end
