@@ -2,13 +2,12 @@ require 'rest-client'
 require 'daisybill_api/data/rest_client/payload'
 
 module DaisybillApi
+  # @private
   module Data
     class Client
-      class InternalServerError < Exception
-      end
+      class InternalServerError < Exception; end
 
-      class UnauthorizedError < Exception
-      end
+      class UnauthorizedError < Exception; end
 
       def self.build(method, path, params = {})
         client = new method, path, params

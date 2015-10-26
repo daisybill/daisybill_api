@@ -1,3 +1,4 @@
+# @private
 module RestClient
   module Payload
     class Base

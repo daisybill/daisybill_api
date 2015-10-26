@@ -7,6 +7,7 @@ require 'daisybill_api/ext/crud/destroy'
 module DaisybillApi
   module Ext
     module CRUD
+      # @private
       module ClassMethods
         def rest_actions(*actions)
           actions.each { |action|
@@ -84,6 +85,7 @@ module DaisybillApi
         end
       end
 
+      # @private
       module InstanceMethods
         def new_record?
           id.nil?
