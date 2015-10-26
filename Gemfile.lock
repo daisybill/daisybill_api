@@ -1,17 +1,17 @@
 PATH
   remote: .
   specs:
-    daisybill_api (0.0.1)
+    daisybill_api (0.1.0)
       activemodel (~> 4.2)
       rest-client (~> 1.8)
 
 GEM
   remote: https://rubygems.org/
   specs:
-    activemodel (4.2.1)
-      activesupport (= 4.2.1)
+    activemodel (4.2.4)
+      activesupport (= 4.2.4)
       builder (~> 3.1)
-    activesupport (4.2.1)
+    activesupport (4.2.4)
       i18n (~> 0.7)
       json (~> 1.7, >= 1.7.7)
       minitest (~> 5.1)
@@ -22,15 +22,15 @@ GEM
     crack (0.4.2)
       safe_yaml (~> 1.0.0)
     diff-lcs (1.2.5)
-    domain_name (0.5.23)
+    domain_name (0.5.25)
       unf (>= 0.0.5, < 1.0.0)
     ffaker (2.0.0)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
     i18n (0.7.0)
-    json (1.8.2)
-    mime-types (2.4.3)
-    minitest (5.5.1)
+    json (1.8.3)
+    mime-types (2.6.2)
+    minitest (5.8.1)
     netrc (0.10.3)
     rake (10.4.2)
     rest-client (1.8.0)
@@ -61,7 +61,7 @@ GEM
       thread_safe (~> 0.1)
     unf (0.1.4)
       unf_ext
-    unf_ext (0.0.6)
+    unf_ext (0.0.7.1)
     vcr (2.9.3)
     webmock (1.20.4)
       addressable (>= 2.3.6)
