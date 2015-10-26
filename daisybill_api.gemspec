@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.version     = DaisybillApi::VERSION
   s.authors     = ["Ben Liscio", "Eugene Surzhko", "Joe Leo"]
   s.email       = ["bliscio@daisybill.com"]
-  s.homepage    = "https://api.daisybill.com"
+  s.homepage    = "https://www.daisybill.com"
   s.summary     = "ActiveRecord style wrapper for DaisyBill's API"
   s.description = "ActiveRecord style wrapper for DaisyBill's API"
   s.license     = "MIT"
