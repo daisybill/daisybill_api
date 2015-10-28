@@ -8,6 +8,11 @@ module DaisybillApi
         id: :integer,
         document_url: :string,
         inactive: :boolean,
+        review_status: :string,
+        review_errors: [:string],
+        document_file_name: :string,
+        document_content_type: :string,
+        document_file_size: :integer,
         readonly: true
       )
 
