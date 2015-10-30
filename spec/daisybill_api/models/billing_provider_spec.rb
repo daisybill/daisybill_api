@@ -9,5 +9,6 @@ describe DaisybillApi::Models::BillingProvider do
   it_behaves_like DaisybillApi::Ext::Associations, :rendering_providers
   it_behaves_like DaisybillApi::Ext::Associations, :referring_providers
   it_behaves_like DaisybillApi::Ext::Associations, :places_of_service
+  it_behaves_like DaisybillApi::Ext::Associations, :attachments
   it_behaves_like DaisybillApi::Ext::Links
 end

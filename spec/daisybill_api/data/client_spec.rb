@@ -33,6 +33,13 @@ describe DaisybillApi::Data::Client, :vcr do
     it_behaves_like 'returned error with status', '401'
   end
 
+  context 'when invalid params' do
+    let(:params) { { created_on: 'invalid' } }
+    let(:path) { '/invalid/params' }
+
+    it_behaves_like 'returned error with status', '403'
+  end
+
   context 'when record was not found' do
     let(:path) { '/billing_providers/unknown-id' }
 
@@ -43,5 +50,53 @@ describe DaisybillApi::Data::Client, :vcr do
     let(:path) { '/raised/error' }
 
     it_behaves_like 'returned error with status', '500'
+  end
+
+  context '.build' do
+    subject { -> { described_class.build :method, '/path' } }
+    let(:status) { 200 }
+    let(:message) { '' }
+
+    before do
+      client = doubled_client(status, { 'error' => message })
+      allow(DaisybillApi::Data::Client).to receive(:new).and_return(client)
+    end
+
+    it { is_expected.not_to raise_error }
+
+    context 'when bad request' do
+      let(:status) { 400 }
+      let(:message) { 'invalid record' }
+
+      it { is_expected.not_to raise_error }
+    end
+
+    context 'when unauthorized' do
+      let(:status) { 401 }
+      let(:message) { 'invalid or missed api token' }
+
+      it { is_expected.to raise_error(DaisybillApi::Data::Client::UnauthorizedError).with_message(message) }
+    end
+
+    context 'when forbidden' do
+      let(:status) { 403 }
+      let(:message) { 'invalid params or incorrect url endpoint' }
+
+      it { is_expected.to raise_error(DaisybillApi::Data::Client::InvalidParams).with_message(message) }
+    end
+
+    context 'when page not found' do
+      let(:status) { 404 }
+      let(:response) { { error: 'Record Not Found' } }
+
+      it { is_expected.to_not raise_error }
+    end
+
+    context 'when internal server error' do
+      let(:status) { 500 }
+      let(:message) { 'Internal Server Error' }
+
+      it { is_expected.to raise_error(DaisybillApi::Data::Client::InternalServerError).with_message(message) }
+    end
   end
 end

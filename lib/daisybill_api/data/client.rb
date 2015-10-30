@@ -5,14 +5,16 @@ module DaisybillApi
   # @private
   module Data
     class Client
-      class InternalServerError < Exception; end
-
-      class UnauthorizedError < Exception; end
+      class BasicError < Exception; end
+      class InternalServerError < BasicError; end
+      class UnauthorizedError < BasicError; end
+      class InvalidParams < BasicError; end
 
       def self.build(method, path, params = {})
         client = new method, path, params
         raise InternalServerError.new(client.response['error']) if client.error?
         raise UnauthorizedError.new(client.response['error']) if client.unauthorized?
+        raise InvalidParams.new(client.response['error']) if client.forbidden?
         client
       end
 
@@ -56,6 +58,10 @@ module DaisybillApi
 
       def not_found?
         status == '404'
+      end
+
+      def forbidden?
+        status == '403'
       end
 
       def error?
