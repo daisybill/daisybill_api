@@ -1,0 +1,49 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://go.daisybill.com/api/v1/invalid/params?api_token
+    body:
+      encoding: US-ASCII
+      string: created_on=invalid
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Content-Length:
+      - '18'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 403
+      message: 'Forbidden '
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '33'
+      Cache-Control:
+      - no-cache
+      X-Request-Id:
+      - bc2bf79d-f660-48e6-9cdf-07dc3db75664
+      X-Runtime:
+      - '0.111945'
+      Server:
+      - WEBrick/1.3.1 (Ruby/2.1.7/2015-08-18)
+      Date:
+      - Fri, 30 Oct 2015 10:03:21 GMT
+      Connection:
+      - Keep-Alive
+      Set-Cookie:
+      - __profilin=p%3Dt; path=/
+      - __profilin=p%3Dt; path=/
+    body:
+      encoding: UTF-8
+      string: '{"error":"created_on is invalid"}'
+    http_version: 
+  recorded_at: Fri, 30 Oct 2015 10:03:21 GMT
+recorded_with: VCR 2.9.3

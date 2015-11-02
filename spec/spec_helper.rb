@@ -25,6 +25,7 @@ def doubled_client(status, response, headers = {})
     unauthorized?: status == 401,
     not_found?: status == 404,
     error?: status == 500,
+    forbidden?: status == 403,
     response: response,
     headers: headers
   }

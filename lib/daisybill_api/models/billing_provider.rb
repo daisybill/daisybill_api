@@ -20,6 +20,7 @@ module DaisybillApi
       has_many :rendering_providers, class: 'RenderingProvider'
       has_many :referring_providers, class: 'ReferringProvider'
       has_many :places_of_service, class: 'PlaceOfService'
+      has_many :attachments, class: 'BillingProviderAttachment'
     end
   end
 end
