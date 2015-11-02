@@ -33,7 +33,7 @@ shared_examples_for DaisybillApi::Ext::CRUD do |*methods, path_or_prefix| #TODO:
     it { is_expected.to respond_to :path_prefix? }
 
     describe 'check methods' do
-      class_methods = [:all, :find, :create]
+      class_methods = [:all, :find, :create, :search]
       (methods & class_methods).each do |method|
         it { is_expected.to respond_to method }
       end
@@ -125,6 +125,21 @@ shared_examples_for DaisybillApi::Ext::CRUD do |*methods, path_or_prefix| #TODO:
         it { expect(described_class.all(params)).to all( be_a described_class )  }
         if prefix
           it { expect(described_class.all(params).map(&:"#{property}")).to all( eq 13666 ) }
+        end
+      end
+    end
+
+    if methods.include? :search
+      context '::search' do
+        let(:status) { 200 }
+        let(:response) { { described_class.plural_key => [{}] } }
+        let(:params) { property ? { property.to_sym => '13666', first_name: "John" } : {} }
+
+        it { expect(described_class.search(params)).to be_a(DaisybillApi::Ext::PageableCollection) }
+        it { expect(described_class.search(params)).to have(1).records }
+        it { expect(described_class.search(params)).to all(be_a described_class) }
+        if prefix
+          it { expect(described_class.search(params).map(&:"#{property}")).to all( eq 13666 ) }
         end
       end
     end

@@ -3,6 +3,7 @@ require 'daisybill_api/ext/crud/create'
 require 'daisybill_api/ext/crud/show'
 require 'daisybill_api/ext/crud/update'
 require 'daisybill_api/ext/crud/destroy'
+require 'daisybill_api/ext/crud/search'
 
 module DaisybillApi
   module Ext
@@ -62,6 +63,10 @@ module DaisybillApi
           else
             index_path_without_prefix
           end
+        end
+
+        def search_path(prefix_id)
+          "#{index_path(prefix_id)}/search"
         end
 
         def client(method, path, params = {})
