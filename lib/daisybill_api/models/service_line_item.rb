@@ -20,7 +20,8 @@ module DaisybillApi
         diagnosis_code_2: :string,
         diagnosis_code_3: :string,
         diagnosis_code_4: :string,
-        custom_unit_charge_cents: :integer
+        custom_unit_charge_cents: :integer,
+        _destroy: :boolean
       )
     end
   end
