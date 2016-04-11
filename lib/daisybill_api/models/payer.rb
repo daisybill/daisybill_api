@@ -1,15 +1,16 @@
 module DaisybillApi
   module Models
-    class ClaimsAdministrator < DaisybillApi::Models::Base
+    class Payer < DaisybillApi::Models::Base
+      path_prefix '/claims_administrators', :claims_administrator_id
       rest_actions :index
 
       attributes(
         id: :integer,
         name: :string,
+        description: :string,
+        main: :boolean,
         readonly: true
       )
-
-      has_many :payers, class: 'Payer'
     end
   end
 end
