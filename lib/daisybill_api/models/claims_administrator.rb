@@ -6,6 +6,7 @@ module DaisybillApi
       attributes(
         id: :integer,
         name: :string,
+        description: :string,
         readonly: true
       )
 
