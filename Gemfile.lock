@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    daisybill_api (0.1.0)
+    daisybill_api (0.1.1)
       activemodel (~> 4.2)
       rest-client (~> 1.8)
 
