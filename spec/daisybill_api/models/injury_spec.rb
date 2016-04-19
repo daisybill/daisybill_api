@@ -1,13 +1,46 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe DaisybillApi::Models::Injury do
-  it_behaves_like DaisybillApi::Ext::Attributes, :id, :description, :claim_number, :adj_number,
-    :start_date, :end_date, :updated_at, :created_at, :patient_id, :claims_administrator_id, :review_status,
-    review_errors: :collection, claims_administrator: :model, employer: :model, diagnosis_codes: :collection,
-    contacts: :collection
-  it_behaves_like DaisybillApi::Ext::Attributes::SendAs, :description, :start_date, :end_date,
-    :claims_administrator_id, :claim_number, :employer_attributes, :adj_number, :patient_id
-  it_behaves_like DaisybillApi::Ext::CRUD, :all, :find, :create, :update, :destroy, '/injuries', patient_id: '/patients'
+  EXT_ATTRIBUTES = %i(
+    id
+    adj_number
+    claim_number
+    claims_administrator_id
+    created_at
+    description
+    end_date
+    patient_id
+    payer_id
+    review_status
+    start_date
+    updated_at
+  ).freeze
+
+  EXT_ATTRIBUTE_TYPES = {
+    claims_administrator: :model,
+    employer:             :model,
+    payer:                :model,
+    contacts:        :collection,
+    diagnosis_codes: :collection,
+    review_errors:   :collection
+  }.freeze
+
+  EXT_SEND_AS_ATTRIBUTES = %i(
+    adj_number
+    claim_number
+    claims_administrator_id
+    description
+    employer_attributes
+    end_date
+    patient_id
+    payer_id
+    start_date
+  ).freeze
+
+  it_behaves_like DaisybillApi::Ext::Attributes, *EXT_ATTRIBUTES, **EXT_ATTRIBUTE_TYPES
+  it_behaves_like DaisybillApi::Ext::Attributes::SendAs, *EXT_SEND_AS_ATTRIBUTES
+
+  it_behaves_like DaisybillApi::Ext::CRUD, :all, :find, :create, :update, :destroy, "/injuries", patient_id: "/patients"
   it_behaves_like DaisybillApi::Ext::Associations, :bills
   it_behaves_like DaisybillApi::Ext::Links, patient: DaisybillApi::Models::Patient
 end
