@@ -6,7 +6,7 @@
 Add the following line to your application's `Gemfile`:
 
 ```ruby
-gem 'daisybill_api', '~> 0.1.0'
+gem 'daisybill_api', '~> 0.1.1'
 ```
 
 and run
@@ -27,6 +27,7 @@ This gem is tested against the following versions of Ruby:
 - 2.0.0
 - 2.1.5
 - 2.2.0
+- 2.2.3
 
 ## Contributing
 1. Fork the project
@@ -41,7 +42,7 @@ This gem is tested against the following versions of Ruby:
 ## License
 The MIT License (MIT)
 
-© 2015 DaisyBill LLC
+© 2015-present DaisyBill LLC
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
