@@ -5,7 +5,7 @@ module DaisybillApi
   # @private
   module Data
     class Client
-      class BasicError < Exception; end
+      class BasicError < StandardError; end
       class InternalServerError < BasicError; end
       class UnauthorizedError < BasicError; end
       class InvalidParams < BasicError; end
