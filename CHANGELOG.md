@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+## [0.1.2] - October 18th, 2016
+- Add rails 5 support - [PR](https://github.com/daisybill/daisybill_api/pull/64)
+- `DaisybillApi::Data::Client::BasicError` now inherits from `StandardError` - [PR](https://github.com/daisybill/daisybill_api/pull/62)
+- Add ability to assign payers to injuries - [PR](https://github.com/daisybill/daisybill_api/pull/55)
+
 ## [0.1.1] - April 11th, 2016
 - Add missing `Attachment` attributes - [PR](https://github.com/daisybill/daisybill_api/pull/46)
 - Add `description` to `ClaimsAdministrator` - [PR](https://github.com/daisybill/daisybill_api/pull/53)
