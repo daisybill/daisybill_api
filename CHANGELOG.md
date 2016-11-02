@@ -1,6 +1,7 @@
 # Changelog
 
 ## Unreleased
+- Add `PharmacyBill` resource - [PR](https://github.com/daisybill/daisybill_api/pull/65)
 
 ## [0.1.2] - October 18th, 2016
 - Add rails 5 support - [PR](https://github.com/daisybill/daisybill_api/pull/64)

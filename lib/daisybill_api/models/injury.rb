@@ -27,6 +27,7 @@ module DaisybillApi
 
       link :patient, class: "Patient"
       has_many :bills, class: "Bill"
+      has_many :pharmacy_bills, class: "PharmacyBill"
     end
   end
 end
