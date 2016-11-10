@@ -41,6 +41,6 @@ describe DaisybillApi::Models::Injury do
   it_behaves_like DaisybillApi::Ext::Attributes::SendAs, *EXT_SEND_AS_ATTRIBUTES
 
   it_behaves_like DaisybillApi::Ext::CRUD, :all, :find, :create, :update, :destroy, "/injuries", patient_id: "/patients"
-  it_behaves_like DaisybillApi::Ext::Associations, :bills
+  it_behaves_like DaisybillApi::Ext::Associations, :bills, :pharmacy_bills
   it_behaves_like DaisybillApi::Ext::Links, patient: DaisybillApi::Models::Patient
 end
