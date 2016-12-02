@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Add `Payer` and `ClaimsAdministrator` `find` methods - [PR](https://github.com/daisybill/daisybill_api/pull/67)
+- Add `PrescribingProvider` resource - [PR](https://github.com/daisybill/daisybill_api/pull/67)
 - Add `PharmacyBill` resource - [PR](https://github.com/daisybill/daisybill_api/pull/65)
 
 ## [0.1.2] - October 18th, 2016
