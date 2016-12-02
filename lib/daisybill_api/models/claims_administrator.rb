@@ -1,7 +1,7 @@
 module DaisybillApi
   module Models
     class ClaimsAdministrator < DaisybillApi::Models::Base
-      rest_actions :index
+      rest_actions :index, :show
 
       attributes(
         id: :integer,
