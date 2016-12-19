@@ -1,6 +1,7 @@
 # Changelog
 
 ## Unreleased
+- Add `Remittance` resource - [PR](https://github.com/daisybill/daisybill_api/pull/70)
 - Add `ClaimNumberVerification` resource - [PR](https://github.com/daisybill/daisybill_api/pull/69)
 - Add `Payer` and `ClaimsAdministrator` `find` methods - [PR](https://github.com/daisybill/daisybill_api/pull/67)
 - Add `PrescribingProvider` resource - [PR](https://github.com/daisybill/daisybill_api/pull/67)

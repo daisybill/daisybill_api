@@ -19,6 +19,7 @@ require 'daisybill_api/models/bill'
 require 'daisybill_api/models/pharmacy_bill'
 require 'daisybill_api/models/bill_payment'
 require 'daisybill_api/models/claim_number_verification'
+require 'daisybill_api/models/remittance'
 
 module DaisybillApi
   # @private
