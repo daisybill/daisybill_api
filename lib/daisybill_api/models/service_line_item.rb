@@ -12,6 +12,8 @@ module DaisybillApi
 
       attributes(
         id: :integer,
+        service_line_item_id: :integer,
+        payment_amount_cents: :integer,
         procedure_code: :string,
         units: :float,
         modifier_codes: [:string],

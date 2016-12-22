@@ -20,6 +20,7 @@ require 'daisybill_api/models/pharmacy_bill'
 require 'daisybill_api/models/bill_payment'
 require 'daisybill_api/models/claim_number_verification'
 require 'daisybill_api/models/remittance'
+require 'daisybill_api/models/paper_eor'
 
 module DaisybillApi
   # @private
