@@ -22,6 +22,7 @@ module DaisybillApi
       has_many :prescribing_providers, class: 'PrescribingProvider'
       has_many :places_of_service, class: 'PlaceOfService'
       has_many :attachments, class: 'BillingProviderAttachment'
+      has_many :remittances, class: 'Remittance'
     end
   end
 end
