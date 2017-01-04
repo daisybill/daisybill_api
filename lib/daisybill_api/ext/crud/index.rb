@@ -12,11 +12,17 @@ module DaisybillApi
           # @return [Object] a {DaisybillApi::Ext::PageableCollection PageableCollection} that includes Enumerable
           def all(options = {})
             id = options[@prefix_property]
-            c = client(:get, index_path(id), options)
+
+            if options[:path]
+              c = client(:get, options.delete(:path), options)
+            else
+              c = client(:get, index_path(id), options)
+            end
 
             if c.success?
+              collection_key = options[:collection_key] || plural_key.to_s
               DaisybillApi::Ext::PageableCollection.new(
-                c.response[plural_key.to_s].map { |attributes|
+                c.response[collection_key].map { |attributes|
                   instance = new(attributes)
                   instance.send("#{prefix_property}=", id) if path_prefix?
                   instance
