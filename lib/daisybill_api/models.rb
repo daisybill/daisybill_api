@@ -21,6 +21,8 @@ require 'daisybill_api/models/bill_payment'
 require 'daisybill_api/models/claim_number_verification'
 require 'daisybill_api/models/remittance'
 require 'daisybill_api/models/paper_eor'
+require 'daisybill_api/models/disputed_service'
+require 'daisybill_api/models/request_for_second_review'
 
 module DaisybillApi
   # @private
