@@ -1,6 +1,7 @@
 # Changelog
 
 ## Unreleased
+- Add ability to get bills for billing provider [PR](https://github.com/daisybill/daisybill_api/pull/73)
 - Add `RequestForSecondReview` and `DisputedService` resources - [PR](https://github.com/daisybill/daisybill_api/pull/72)
 - Add `Remittance` resource - [PR](https://github.com/daisybill/daisybill_api/pull/70)
 - Add `ClaimNumberVerification` resource - [PR](https://github.com/daisybill/daisybill_api/pull/69)
