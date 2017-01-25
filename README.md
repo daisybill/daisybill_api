@@ -6,7 +6,7 @@
 Add the following line to your application's `Gemfile`:
 
 ```ruby
-gem 'daisybill_api', '~> 0.1.1'
+gem 'daisybill_api', '~> 0.1.3'
 ```
 
 and run
@@ -23,8 +23,6 @@ You can also view the [API reference](http://www.rubydoc.info/github/daisybill/d
 ## Compatibility
 This gem is tested against the following versions of Ruby:
 
-- 1.9.3
-- 2.0.0
 - 2.1.5
 - 2.2.0
 - 2.2.3
@@ -61,4 +59,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-

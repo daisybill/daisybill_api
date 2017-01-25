@@ -1,6 +1,9 @@
 # Changelog
 
 ## Unreleased
+
+## [0.1.3] - January 25th, 2017
+- Add ability to get injuries for billing provider [PR](https://github.com/daisybill/daisybill_api/pull/74)
 - Add ability to get bills for billing provider [PR](https://github.com/daisybill/daisybill_api/pull/73)
 - Add `RequestForSecondReview` and `DisputedService` resources - [PR](https://github.com/daisybill/daisybill_api/pull/72)
 - Add `Remittance` resource - [PR](https://github.com/daisybill/daisybill_api/pull/70)
