@@ -5,6 +5,11 @@ module DaisybillApi
       path_prefix '/bills', :bill_id
 
       attributes(
+        comment: :string,
+        supporting_document_ids: [:integer]
+      )
+
+      attributes(
         id: :integer,
         type: :string,
         mode: :string,

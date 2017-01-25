@@ -47,6 +47,8 @@ def generate_attribute(type)
   case type
     when :integer
       rand(201) - 100
+    when [:integer]
+      [rand(201) - 100]
     when :string
       FFaker::Lorem.word
     when :date
