@@ -23,7 +23,6 @@ You can also view the [API reference](http://www.rubydoc.info/github/daisybill/d
 ## Compatibility
 This gem is tested against the following versions of Ruby:
 
-- 2.1.5
 - 2.2.0
 - 2.2.3
 
