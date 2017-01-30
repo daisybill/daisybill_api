@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+
+## [0.1.4] - January 30th, 2017
 - Add ability to set `comment`, `supporting_document_ids` on bill submissions
 
 ## [0.1.3] - January 25th, 2017
