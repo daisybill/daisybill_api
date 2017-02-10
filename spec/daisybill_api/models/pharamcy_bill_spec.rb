@@ -16,7 +16,7 @@ describe DaisybillApi::Models::PharmacyBill do
     :route_of_administration, :number_of_containers, :injury_id, :place_of_service_id,
     :prescribing_provider_id, :service_line_items_attributes
   it_behaves_like DaisybillApi::Ext::CRUD,
-    :all, :find, :create, :update, :destroy,
+    :all, :find, :create, :update, :destroy, :write_off,
     '/pharmacy_bills', injury_id: '/injuries'
   it_behaves_like DaisybillApi::Ext::Links,
     injury: DaisybillApi::Models::Injury,
