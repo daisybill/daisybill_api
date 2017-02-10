@@ -4,6 +4,7 @@ require 'daisybill_api/ext/crud/show'
 require 'daisybill_api/ext/crud/update'
 require 'daisybill_api/ext/crud/destroy'
 require 'daisybill_api/ext/crud/search'
+require 'daisybill_api/ext/crud/write_off'
 
 module DaisybillApi
   module Ext
@@ -12,7 +13,7 @@ module DaisybillApi
       module ClassMethods
         def rest_actions(*actions)
           actions.each { |action|
-            name = action.capitalize
+            name = action.to_s.classify
             extend "DaisybillApi::Ext::CRUD::#{name}::ClassMethods".constantize
             include "DaisybillApi::Ext::CRUD::#{name}::InstanceMethods".constantize
           }
