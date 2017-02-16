@@ -37,6 +37,7 @@ module DaisybillApi
       has_many :attachments, class: 'Attachment'
       has_many :bill_payments, class: 'BillPayment'
       has_many :bill_submissions, class: 'BillSubmission'
+      has_many :error_reports, class: 'ErrorReport'
 
       def write_off
         @written_off = send_data :post, write_off_path

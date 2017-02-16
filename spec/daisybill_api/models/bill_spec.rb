@@ -19,4 +19,5 @@ describe DaisybillApi::Models::Bill do
     supervising_provider: DaisybillApi::Models::RenderingProvider
   it_behaves_like DaisybillApi::Ext::Associations, :bill_submissions
   it_behaves_like DaisybillApi::Ext::Associations, :attachments
+  it_behaves_like DaisybillApi::Ext::Associations, :error_reports
 end
