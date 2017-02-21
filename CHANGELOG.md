@@ -6,6 +6,7 @@
 
 ## [0.1.4] - January 30th, 2017
 - Add ability to set `comment`, `supporting_document_ids` on bill submissions
+- Drop support for Ruby 2.1.5 and lower
 
 ## [0.1.3] - January 25th, 2017
 - Add ability to get injuries for billing provider [PR](https://github.com/daisybill/daisybill_api/pull/74)
