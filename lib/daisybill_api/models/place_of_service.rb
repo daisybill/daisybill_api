@@ -18,6 +18,7 @@ module DaisybillApi
         active: :boolean,
         authorization_telephone_number: :string,
         authorization_fax_number: :string,
+        telephone: :string,
         place_of_service_type_code: :string,
         address: DaisybillApi::Models::Address
       )
