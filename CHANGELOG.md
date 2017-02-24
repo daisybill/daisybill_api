@@ -3,6 +3,7 @@
 ## Unreleased
 
 - Add ability to create and view error reports for a bill [PR](https://github.com/daisybill/daisybill_api/pull/84)
+- Add ability to set telephone for places of service      [PR](https://github.com/daisybill/daisybill_api/pull/87)
 
 ## [0.1.4] - January 30th, 2017
 - Add ability to set `comment`, `supporting_document_ids` on bill submissions
