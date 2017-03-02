@@ -37,9 +37,9 @@ module DaisybillApi
       link :place_of_service, class: 'PlaceOfService'
       link :prescribing_provider, class: 'PrescribingProvider'
 
-      has_many :attachments, class: 'Attachment'
-      has_many :bill_payments, class: 'BillPayment'
-      has_many :bill_submissions, class: 'BillSubmission'
+      has_many :attachments,      class: 'Attachment',     set_path: true, use_path_prefix: true
+      has_many :bill_payments,    class: 'BillPayment',    set_path: true, use_path_prefix: true
+      has_many :bill_submissions, class: 'BillSubmission', set_path: true, use_path_prefix: true
 
       def write_off
         @written_off = send_data :post, write_off_path
