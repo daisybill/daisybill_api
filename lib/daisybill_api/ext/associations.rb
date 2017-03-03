@@ -16,6 +16,7 @@ module DaisybillApi
           define_method name do |params = {}|
             params.merge!(:"#{self.class.singular_key}_id" => self.id)
             params.merge!(path: "#{show_path}/#{name}") if options[:set_path]
+            params.merge!(path: clazz.constantize.index_path(id)) if options[:set_path] && options[:use_path_prefix]
             params.merge!(collection_key: options[:collection_key]) if options[:collection_key]
             clazz.constantize.all(params)
           end
