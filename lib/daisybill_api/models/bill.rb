@@ -14,6 +14,7 @@ module DaisybillApi
         write_off_cents: :integer,
         review_status: :string,
         review_errors: [:string],
+        review_warnings: [:string],
         readonly: true,
       )
 

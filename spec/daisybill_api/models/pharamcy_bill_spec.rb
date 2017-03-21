@@ -8,7 +8,8 @@ describe DaisybillApi::Models::PharmacyBill do
     :dosage_form, :route_of_administration, :charge_cents, :number_of_containers,
     :expected_payment_cents, :allowed_cents, :balance_due_cents, :created_at,
     :updated_at, :injury_id, :place_of_service_id, :prescribing_provider_id,
-    :review_status, review_errors: :collection, service_line_items: :collection
+    :review_status, review_errors: :collection, review_warnings: :collection,
+    service_line_items: :collection
   it_behaves_like DaisybillApi::Ext::Attributes::SendAs,
     :date_of_service, :authorization_number, :product_type, :prescription_date,
     :fill_number, :prescription_number, :days_supply, :dispense_as_written_code,
