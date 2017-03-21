@@ -22,7 +22,8 @@ describe DaisybillApi::Models::Injury do
     payer:                :model,
     contacts:        :collection,
     diagnosis_codes: :collection,
-    review_errors:   :collection
+    review_errors:   :collection,
+    review_warnings: :collection
   }.freeze
 
   EXT_SEND_AS_ATTRIBUTES = [

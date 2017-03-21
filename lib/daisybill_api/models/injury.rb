@@ -10,6 +10,7 @@ module DaisybillApi
         payer: DaisybillApi::Models::Payer,
         review_status: :string,
         review_errors: [:string],
+        review_warnings: [:string],
         diagnosis_codes: [:string],
         contacts: [DaisybillApi::Models::Contact],
         readonly: true

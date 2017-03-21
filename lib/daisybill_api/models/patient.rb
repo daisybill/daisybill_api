@@ -8,6 +8,7 @@ module DaisybillApi
         id: :integer,
         review_status: :string,
         review_errors: [:string],
+        review_warnings: [:string],
         readonly: true
       )
       attributes(

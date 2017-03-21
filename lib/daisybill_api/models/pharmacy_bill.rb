@@ -13,6 +13,7 @@ module DaisybillApi
         balance_due_cents: :integer,
         review_status: :string,
         review_errors: [:string],
+        review_warnings: [:string],
         readonly: true
       )
 
