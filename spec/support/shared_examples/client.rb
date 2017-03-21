@@ -35,6 +35,13 @@ shared_examples_for 'used client that raise exceptions' do
     it { is_expected.to_not raise_error }
   end
 
+  context 'when method not allowed' do
+    let(:status) { 405 }
+    let(:response) { { error: 'Method not allowed' } }
+
+    it { is_expected.to raise_error(DaisybillApi::Data::Client::MethodNotAllowed) }
+  end
+
   context 'when internal server error' do
     let(:status) { 500 }
     let(:message) { 'Internal Server Error' }

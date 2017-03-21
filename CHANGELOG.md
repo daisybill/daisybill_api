@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Add support for receiving 405 responses                 [PR](https://github.com/daisybill/daisybill_api/pull/93)
 - Add ability to create and view error reports for a bill [PR](https://github.com/daisybill/daisybill_api/pull/84)
 - Add ability to set telephone for places of service      [PR](https://github.com/daisybill/daisybill_api/pull/87)
 

@@ -9,12 +9,14 @@ module DaisybillApi
       class InternalServerError < BasicError; end
       class UnauthorizedError < BasicError; end
       class InvalidParams < BasicError; end
+      class MethodNotAllowed < BasicError; end
 
       def self.build(method, path, params = {})
         client = new method, path, params
         raise InternalServerError.new(client.response['error']) if client.error?
         raise UnauthorizedError.new(client.response['error']) if client.unauthorized?
         raise InvalidParams.new(client.response['error']) if client.forbidden?
+        raise MethodNotAllowed.new(client.response['error']) if client.method_not_allowed?
         client
       end
 
@@ -62,6 +64,10 @@ module DaisybillApi
 
       def forbidden?
         status == '403'
+      end
+
+      def method_not_allowed?
+        status == '405'
       end
 
       def error?
