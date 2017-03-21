@@ -46,6 +46,12 @@ describe DaisybillApi::Data::Client, :vcr do
     it_behaves_like 'returned error with status', '404'
   end
 
+  context 'when method is not allowed' do
+    let(:method) { :post }
+
+    it_behaves_like 'returned error with status', '405'
+  end
+
   context 'when server raised error' do
     let(:path) { '/raised/error' }
 

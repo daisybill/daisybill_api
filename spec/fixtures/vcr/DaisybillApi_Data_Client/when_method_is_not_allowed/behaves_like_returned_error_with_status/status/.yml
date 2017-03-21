@@ -1,0 +1,150 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://go.daisybill.com/api/v1/billing_providers/25?api_token
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Content-Length:
+      - '0'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 405
+      message: Method Not Allowed
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      Date:
+      - Tue, 21 Mar 2017 20:03:57 GMT
+      Status:
+      - 405 Method Not Allowed
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '27'
+      Cache-Control:
+      - no-cache
+      X-Request-Id:
+      - ac153dbc-2298-405b-8fe1-340e6d643efd
+      X-Runtime:
+      - '0.020936'
+      Strict-Transport-Security:
+      - max-age=15552000
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"error":"405 Not Allowed"}'
+    http_version:
+  recorded_at: Tue, 21 Mar 2017 20:03:57 GMT
+- request:
+    method: post
+    uri: https://go.daisybill.com/api/v1/billing_providers/25?api_token
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Content-Length:
+      - '0'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 405
+      message: Method Not Allowed
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      Date:
+      - Tue, 21 Mar 2017 20:07:49 GMT
+      Status:
+      - 405 Method Not Allowed
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '27'
+      Cache-Control:
+      - no-cache
+      X-Request-Id:
+      - 58ec8108-fd12-41e6-b82d-7f7581565c6c
+      X-Runtime:
+      - '0.030995'
+      Strict-Transport-Security:
+      - max-age=15552000
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"error":"405 Not Allowed"}'
+    http_version:
+  recorded_at: Tue, 21 Mar 2017 20:07:49 GMT
+- request:
+    method: post
+    uri: https://go.daisybill.com/api/v1/billing_providers/25?api_token
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Content-Length:
+      - '0'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 405
+      message: Method Not Allowed
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      Date:
+      - Tue, 21 Mar 2017 20:08:33 GMT
+      Status:
+      - 405 Method Not Allowed
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '27'
+      Cache-Control:
+      - no-cache
+      X-Request-Id:
+      - b321f77e-aeb2-42c6-a6e9-e0db24be38e9
+      X-Runtime:
+      - '0.016337'
+      Strict-Transport-Security:
+      - max-age=15552000
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"error":"405 Not Allowed"}'
+    http_version:
+  recorded_at: Tue, 21 Mar 2017 20:08:34 GMT
+recorded_with: VCR 2.9.3
