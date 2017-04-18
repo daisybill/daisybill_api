@@ -4,7 +4,7 @@ describe DaisybillApi::Models::PharmacyBill do
   it_behaves_like DaisybillApi::Ext::Attributes,
     :id, :date_of_service, :authorization_number, :status, :product_type,
     :prescription_date, :fill_number, :prescription_number, :days_supply,
-    :dispense_as_written_code, :unit_of_measurement, :compound_name,
+    :dispense_as_written_code, :unit_of_measurement, :compound_name, :practice_bill_id,
     :dosage_form, :route_of_administration, :charge_cents, :number_of_containers,
     :expected_payment_cents, :allowed_cents, :balance_due_cents, :created_at,
     :updated_at, :injury_id, :place_of_service_id, :prescribing_provider_id,
@@ -13,7 +13,7 @@ describe DaisybillApi::Models::PharmacyBill do
   it_behaves_like DaisybillApi::Ext::Attributes::SendAs,
     :date_of_service, :authorization_number, :product_type, :prescription_date,
     :fill_number, :prescription_number, :days_supply, :dispense_as_written_code,
-    :unit_of_measurement, :compound_name, :dosage_form,
+    :unit_of_measurement, :compound_name, :practice_bill_id, :dosage_form,
     :route_of_administration, :number_of_containers, :injury_id, :place_of_service_id,
     :prescribing_provider_id, :service_line_items_attributes
   it_behaves_like DaisybillApi::Ext::CRUD,

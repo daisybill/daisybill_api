@@ -28,6 +28,7 @@ module DaisybillApi
         unit_of_measurement: :string,
         authorization_number: :string,
         compound_name: :string,
+        practice_bill_id: :string,
         dosage_form: :integer,
         route_of_administration: :integer,
         number_of_containers: :integer,
