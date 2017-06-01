@@ -1,33 +1,33 @@
 PATH
   remote: .
   specs:
-    daisybill_api (0.1.3)
+    daisybill_api (0.1.4)
       activemodel (>= 4.2)
       rest-client (~> 1.8)
 
 GEM
   remote: https://rubygems.org/
   specs:
-    activemodel (5.0.0.1)
-      activesupport (= 5.0.0.1)
-    activesupport (5.0.0.1)
+    activemodel (5.0.1)
+      activesupport (= 5.0.1)
+    activesupport (5.0.1)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     addressable (2.3.7)
-    concurrent-ruby (1.0.2)
+    concurrent-ruby (1.0.3)
     crack (0.4.2)
       safe_yaml (~> 1.0.0)
     diff-lcs (1.2.5)
-    domain_name (0.5.20160826)
+    domain_name (0.5.20161129)
       unf (>= 0.0.5, < 1.0.0)
     ffaker (2.0.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     i18n (0.7.0)
     mime-types (2.99.3)
-    minitest (5.9.1)
+    minitest (5.10.1)
     netrc (0.11.0)
     rake (10.4.2)
     rest-client (1.8.0)
@@ -81,4 +81,4 @@ DEPENDENCIES
   yard (~> 0.8.7)
 
 BUNDLED WITH
-   1.12.4
+   1.13.6

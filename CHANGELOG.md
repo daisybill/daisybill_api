@@ -2,6 +2,7 @@
 
 ## Unreleased
 - Add `BillPayment` `find` method                         [PR](https://github.com/daisybill/daisybill_api/pull/104)
+- Add `User` resource                                     [PR](https://github.com/daisybill/daisybill_api/pull/105)
 - Add `practice_bill_id` to pharmacy bills                [PR](https://github.com/daisybill/daisybill_api/pull/96)
 - Add ability to create/update contacts                   [PR](https://github.com/daisybill/daisybill_api/pull/95)
 - Add support for receiving 405 responses                 [PR](https://github.com/daisybill/daisybill_api/pull/93)
