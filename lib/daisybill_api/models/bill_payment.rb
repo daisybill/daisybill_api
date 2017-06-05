@@ -1,7 +1,7 @@
 module DaisybillApi
   module Models
     class BillPayment < DaisybillApi::Models::Base
-      rest_actions :index
+      rest_actions :index, :show
       path_prefix '/bills', :bill_id
 
       attributes(
