@@ -20,4 +20,5 @@ describe DaisybillApi::Models::Bill do
   it_behaves_like DaisybillApi::Ext::Associations, :bill_submissions
   it_behaves_like DaisybillApi::Ext::Associations, :attachments
   it_behaves_like DaisybillApi::Ext::Associations, :error_reports
+  it_behaves_like DaisybillApi::Ext::Associations, :tasks
 end
