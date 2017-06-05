@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Add `bill.tasks`                                        [PR](https://github.com/daisybill/daisybill_api/pull/103)
+- Add `Task` resource                                     [PR](https://github.com/daisybill/daisybill_api/pull/103)
 - Add `claims_administrator.bill_mailing_addresses`       [PR](https://github.com/daisybill/daisybill_api/pull/99)
 - Add `payer.bill_mailing_addresses`                      [PR](https://github.com/daisybill/daisybill_api/pull/99)
 - Add `bill_payment.claim_adjustment_reasons`             [PR](https://github.com/daisybill/daisybill_api/pull/100)

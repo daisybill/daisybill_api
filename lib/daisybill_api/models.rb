@@ -27,6 +27,7 @@ require "daisybill_api/models/disputed_service"
 require "daisybill_api/models/request_for_second_review"
 require "daisybill_api/models/error_report"
 require "daisybill_api/models/user"
+require "daisybill_api/models/task"
 
 module DaisybillApi
   # @private
