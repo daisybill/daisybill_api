@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe DaisybillApi::Models::Contact do
   it_behaves_like DaisybillApi::Ext::Attributes,

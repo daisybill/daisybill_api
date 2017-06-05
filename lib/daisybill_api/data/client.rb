@@ -1,5 +1,5 @@
-require 'rest-client'
-require 'daisybill_api/data/rest_client/payload'
+require "rest-client"
+require "daisybill_api/data/rest_client/payload"
 
 module DaisybillApi
   # @private
@@ -13,10 +13,10 @@ module DaisybillApi
 
       def self.build(method, path, params = {})
         client = new method, path, params
-        raise InternalServerError.new(client.response['error']) if client.error?
-        raise UnauthorizedError.new(client.response['error']) if client.unauthorized?
-        raise InvalidParams.new(client.response['error']) if client.forbidden?
-        raise MethodNotAllowed.new(client.response['error']) if client.method_not_allowed?
+        raise InternalServerError.new(client.response["error"]) if client.error?
+        raise UnauthorizedError.new(client.response["error"]) if client.unauthorized?
+        raise InvalidParams.new(client.response["error"]) if client.forbidden?
+        raise MethodNotAllowed.new(client.response["error"]) if client.method_not_allowed?
         client
       end
 
@@ -30,7 +30,7 @@ module DaisybillApi
           method: method,
           url: url,
           payload: params,
-          headers: { 'Content-Type' => 'application/json' }
+          headers: { "Content-Type" => "application/json" }
         }
         RestClient::Request.execute(data) { |response, request, status|
           @headers = response.headers
@@ -47,31 +47,31 @@ module DaisybillApi
       end
 
       def success?
-        status == '200' || status == '201'
+        status == "200" || status == "201"
       end
 
       def bad_request?
-        status == '400'
+        status == "400"
       end
 
       def unauthorized?
-        status == '401'
+        status == "401"
       end
 
       def not_found?
-        status == '404'
+        status == "404"
       end
 
       def forbidden?
-        status == '403'
+        status == "403"
       end
 
       def method_not_allowed?
-        status == '405'
+        status == "405"
       end
 
       def error?
-        status == '500'
+        status == "500"
       end
     end
   end

@@ -1,11 +1,11 @@
-require 'daisybill_api/data'
-require 'daisybill_api/configuration'
-require 'daisybill_api/ext'
-require 'daisybill_api/models'
+require "daisybill_api/data"
+require "daisybill_api/configuration"
+require "daisybill_api/ext"
+require "daisybill_api/models"
 
 module DaisybillApi
   # @private
-  ROOT = File.expand_path('../..', __FILE__)
+  ROOT = File.expand_path("../..", __FILE__)
 
   class << self
     attr_writer :configuration

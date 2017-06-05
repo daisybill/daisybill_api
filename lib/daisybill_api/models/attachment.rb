@@ -2,7 +2,7 @@ module DaisybillApi
   module Models
     class Attachment < DaisybillApi::Models::Base
       rest_actions :index, :create, :update, :show, :destroy
-      path_prefix '/bills', :bill_id
+      path_prefix "/bills", :bill_id
 
       attributes(
         id: :integer,
@@ -22,7 +22,7 @@ module DaisybillApi
         document: :attachment
       )
 
-      link :bill, class: 'Bill'
+      link :bill, class: "Bill"
     end
   end
 end

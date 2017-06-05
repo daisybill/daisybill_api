@@ -1,10 +1,10 @@
-require 'daisybill_api/ext/crud/index'
-require 'daisybill_api/ext/crud/create'
-require 'daisybill_api/ext/crud/show'
-require 'daisybill_api/ext/crud/update'
-require 'daisybill_api/ext/crud/destroy'
-require 'daisybill_api/ext/crud/search'
-require 'daisybill_api/ext/crud/write_off'
+require "daisybill_api/ext/crud/index"
+require "daisybill_api/ext/crud/create"
+require "daisybill_api/ext/crud/show"
+require "daisybill_api/ext/crud/update"
+require "daisybill_api/ext/crud/destroy"
+require "daisybill_api/ext/crud/search"
+require "daisybill_api/ext/crud/write_off"
 
 module DaisybillApi
   module Ext
@@ -76,7 +76,7 @@ module DaisybillApi
 
         private
 
-        PREFIX_LENGTH = 'daisybill_api_models_'.length
+        PREFIX_LENGTH = "daisybill_api_models_".length
 
         def demodulize(name)
           name[PREFIX_LENGTH..name.length]
@@ -105,7 +105,7 @@ module DaisybillApi
 
         def index_path
           params = self.class.path_prefix? ? [self.send(self.class.prefix_property)] : []
-          self.class.index_path *params
+          self.class.index_path(*params)
         end
 
         def show_path
@@ -130,11 +130,11 @@ module DaisybillApi
         def process_response(client)
           if client.success?
             response = client.response.clone
-            self.links = response.delete 'links'
+            self.links = response.delete "links"
             self.attributes = response
             true
           elsif client.bad_request?
-            self.external_errors = client.response['errors']
+            self.external_errors = client.response["errors"]
             self.valid?
           else
             false

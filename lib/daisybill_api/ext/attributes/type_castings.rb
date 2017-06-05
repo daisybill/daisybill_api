@@ -1,4 +1,4 @@
-require 'open-uri'
+require "open-uri"
 
 module DaisybillApi
   module Ext
@@ -25,7 +25,7 @@ module DaisybillApi
               when :float
                 to_float(value)
               else
-                raise 'Unknown Type'
+                raise "Unknown Type"
             end
           end
 

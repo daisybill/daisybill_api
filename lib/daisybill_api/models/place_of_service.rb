@@ -2,10 +2,10 @@ module DaisybillApi
   module Models
     class PlaceOfService < DaisybillApi::Models::Base
       def self.plural_key
-        'places_of_service'
+        "places_of_service"
       end
 
-      path_prefix '/billing_providers', :billing_provider_id
+      path_prefix "/billing_providers", :billing_provider_id
       rest_actions :index, :show, :create, :update
 
       attribute :id, :integer, readonly: true
@@ -23,7 +23,7 @@ module DaisybillApi
         address: DaisybillApi::Models::Address
       )
 
-      link :billing_provider, class: 'BillingProvider'
+      link :billing_provider, class: "BillingProvider"
     end
   end
 end

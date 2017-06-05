@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe DaisybillApi::Models::PharmacyBill do
   it_behaves_like DaisybillApi::Ext::Attributes,
@@ -18,7 +18,7 @@ describe DaisybillApi::Models::PharmacyBill do
     :prescribing_provider_id, :service_line_items_attributes
   it_behaves_like DaisybillApi::Ext::CRUD,
     :all, :find, :create, :update, :destroy, :write_off,
-    '/pharmacy_bills', injury_id: '/injuries'
+    "/pharmacy_bills", injury_id: "/injuries"
   it_behaves_like DaisybillApi::Ext::Links,
     injury: DaisybillApi::Models::Injury,
     place_of_service: DaisybillApi::Models::PlaceOfService,

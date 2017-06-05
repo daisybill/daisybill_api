@@ -33,7 +33,7 @@ module DaisybillApi
           #
           #   bill = DaisybillApi::Models::Bill.new(
           #     injury_id: 345,
-          #     date_of_service: '2015-01-01',
+          #     date_of_service: "2015-01-01",
           #     rendering_provider_id: rp.id,
           #     place_of_service_id: pos.id,
           #     diagnosis_codes: ["72700"],
@@ -91,7 +91,7 @@ module DaisybillApi
           def save
             return create if new_record?
             return update if respond_to? :update
-            message = '#save method is not supported for saved record'
+            message = "#save method is not supported for saved record"
             DaisybillApi.logger.error message
             raise NotImplementedError.new message
           end

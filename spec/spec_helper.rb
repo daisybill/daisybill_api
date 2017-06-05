@@ -1,9 +1,9 @@
-require 'rspec'
-require 'rspec/its'
-require 'rspec/collection_matchers'
-require 'daisybill_api'
-require 'vcr'
-require 'ffaker'
+require "rspec"
+require "rspec/its"
+require "rspec/collection_matchers"
+require "daisybill_api"
+require "vcr"
+require "ffaker"
 
 Dir["#{DaisybillApi::ROOT}/spec/support/**/*.rb"].each { |f| require f }
 
