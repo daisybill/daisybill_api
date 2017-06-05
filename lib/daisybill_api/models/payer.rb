@@ -11,6 +11,8 @@ module DaisybillApi
         main: :boolean,
         readonly: true
       )
+
+      has_many :bill_mailing_addresses, class: "BillMailingAddress", set_path: true
     end
   end
 end

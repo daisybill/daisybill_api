@@ -50,6 +50,8 @@ def generate_attribute(type)
       rand(201) - 100
     when [:integer]
       [rand(201) - 100]
+    when [:string]
+      [FFaker::Lorem.word, FFaker::Lorem.word]
     when :string
       FFaker::Lorem.word
     when :date

@@ -5,4 +5,5 @@ describe DaisybillApi::Models::Payer do
     :created_at, :updated_at
   it_behaves_like DaisybillApi::Ext::Attributes::SendAs
   it_behaves_like DaisybillApi::Ext::CRUD, :all, :find, "/payers", claims_administrator_id: "/claims_administrators"
+  it_behaves_like DaisybillApi::Ext::Associations, :bill_mailing_addresses
 end
