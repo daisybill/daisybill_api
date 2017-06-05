@@ -24,6 +24,8 @@ module DaisybillApi
                 to_attachment(value)
               when :float
                 to_float(value)
+              when :hash
+                to_hash(value)
               else
                 raise "Unknown Type"
             end
@@ -59,17 +61,21 @@ module DaisybillApi
 
           def to_class(attributes, type)
             return attributes if attributes.is_a? type
-            type.new attributes rescue nil
+            type.new(attributes) rescue nil
           end
 
           def to_array(values, type)
             return [] if values.nil?
-            values.map { |value| convert_to value, type }
+            values.map { |value| convert_to(value, type) }
           end
 
           def to_attachment(value)
             return open(value) if value.is_a? String
             value if value.is_a?(StringIO) || value.kind_of?(IO)
+          end
+
+          def to_hash(value)
+            value.to_h rescue nil
           end
         end
       end

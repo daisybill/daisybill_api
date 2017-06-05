@@ -27,6 +27,7 @@ describe DaisybillApi::Ext::Attributes::TypeCastings do
   it { expect(converter.convert_to(nil, :date)).to be_nil }
   it { expect(converter.convert_to(nil, :datetime)).to be_nil }
   it { expect(converter.convert_to({}, DaisybillApi::Models::Address)).to be_a DaisybillApi::Models::Address }
+  it { expect(converter.convert_to({ key: :value }, :hash)).to eq({ key: :value }) }
 
   context "attachment", vcr: true do
     it { expect(converter.convert_to(nil, :attachment)).to be_nil }

@@ -10,6 +10,8 @@ module DaisybillApi
         check_number: :string,
         check_effective_date: :date,
         payment_source: :string,
+        claim_adjustment_reasons: [DaisybillApi::Models::ClaimAdjustmentReason],
+        service_line_item_payments: [DaisybillApi::Models::ServiceLineItemPayment],
         readonly: true
       )
 

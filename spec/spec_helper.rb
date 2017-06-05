@@ -62,6 +62,10 @@ def generate_attribute(type)
       File.open(__FILE__)
     when :float
       (rand * (rand(20) + 1)).round(2)
+    when :hash
+      { key: :value }
+    when [:hash]
+      [{ key: :value }]
     else
       raise "Unknown Attribute Type: #{type.inspect}"
   end
