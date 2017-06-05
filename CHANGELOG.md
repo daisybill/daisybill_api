@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Add `claims_administrator.bill_mailing_addresses`       [PR](https://github.com/daisybill/daisybill_api/pull/99)
+- Add `payer.bill_mailing_addresses`                      [PR](https://github.com/daisybill/daisybill_api/pull/99)
 - Add `bill_payment.claim_adjustment_reasons`             [PR](https://github.com/daisybill/daisybill_api/pull/100)
 - Add `bill_payment.service_line_item_payments`           [PR](https://github.com/daisybill/daisybill_api/pull/100)
 - Add `BillPayment` `find` method                         [PR](https://github.com/daisybill/daisybill_api/pull/104)

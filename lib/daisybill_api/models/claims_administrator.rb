@@ -11,6 +11,7 @@ module DaisybillApi
       )
 
       has_many :payers, class: "Payer"
+      has_many :bill_mailing_addresses, class: "BillMailingAddress", set_path: true
     end
   end
 end
