@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe DaisybillApi::Models::DisputedService do
   it_behaves_like DaisybillApi::Ext::Attributes, :id, :service_line_item_id, :reason, :authorized,

@@ -1,7 +1,7 @@
 module DaisybillApi
   module Models
     class Bill < DaisybillApi::Models::Base
-      path_prefix '/injuries', :injury_id
+      path_prefix "/injuries", :injury_id
       rest_actions :index, :show, :create, :update, :destroy, :write_off
 
       attributes(
@@ -29,16 +29,16 @@ module DaisybillApi
         service_line_items: [DaisybillApi::Models::ServiceLineItem]
       )
 
-      link :injury, class: 'Injury'
-      link :place_of_service, class: 'PlaceOfService'
-      link :rendering_provider, class: 'RenderingProvider'
-      link :referring_provider, class: 'ReferringProvider'
-      link :supervising_provider, class: 'RenderingProvider'
+      link :injury, class: "Injury"
+      link :place_of_service, class: "PlaceOfService"
+      link :rendering_provider, class: "RenderingProvider"
+      link :referring_provider, class: "ReferringProvider"
+      link :supervising_provider, class: "RenderingProvider"
 
-      has_many :attachments, class: 'Attachment'
-      has_many :bill_payments, class: 'BillPayment'
-      has_many :bill_submissions, class: 'BillSubmission'
-      has_many :error_reports, class: 'ErrorReport'
+      has_many :attachments, class: "Attachment"
+      has_many :bill_payments, class: "BillPayment"
+      has_many :bill_submissions, class: "BillSubmission"
+      has_many :error_reports, class: "ErrorReport"
 
       def write_off
         @written_off = send_data :post, write_off_path

@@ -1,9 +1,9 @@
-require 'rspec'
-require 'rspec/its'
-require 'rspec/collection_matchers'
-require 'daisybill_api'
-require 'vcr'
-require 'ffaker'
+require "rspec"
+require "rspec/its"
+require "rspec/collection_matchers"
+require "daisybill_api"
+require "vcr"
+require "ffaker"
 
 Dir["#{DaisybillApi::ROOT}/spec/support/**/*.rb"].each { |f| require f }
 
@@ -62,6 +62,10 @@ def generate_attribute(type)
       File.open(__FILE__)
     when :float
       (rand * (rand(20) + 1)).round(2)
+    when :hash
+      { key: :value }
+    when [:hash]
+      [{ key: :value }]
     else
       raise "Unknown Attribute Type: #{type.inspect}"
   end

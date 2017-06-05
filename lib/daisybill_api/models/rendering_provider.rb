@@ -1,7 +1,7 @@
 module DaisybillApi
   module Models
     class RenderingProvider < DaisybillApi::Models::Base
-      path_prefix '/billing_providers', :billing_provider_id
+      path_prefix "/billing_providers", :billing_provider_id
       rest_actions :index, :show, :create, :update
 
       attribute :id, :integer, readonly: true
@@ -17,7 +17,7 @@ module DaisybillApi
         active: :boolean
       )
 
-      link :billing_provider, class: 'BillingProvider'
+      link :billing_provider, class: "BillingProvider"
     end
   end
 end

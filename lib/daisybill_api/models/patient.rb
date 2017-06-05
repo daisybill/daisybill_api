@@ -1,7 +1,7 @@
 module DaisybillApi
   module Models
     class Patient < DaisybillApi::Models::Base
-      path_prefix '/billing_providers', :billing_provider_id
+      path_prefix "/billing_providers", :billing_provider_id
       rest_actions :index, :show, :create, :update, :destroy, :search
 
       attributes(
@@ -24,9 +24,9 @@ module DaisybillApi
         address: DaisybillApi::Models::Address
       )
 
-      has_many :injuries, class: 'Injury'
+      has_many :injuries, class: "Injury"
 
-      link :billing_provider, class: 'BillingProvider'
+      link :billing_provider, class: "BillingProvider"
     end
   end
 end

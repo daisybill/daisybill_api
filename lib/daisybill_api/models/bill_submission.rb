@@ -2,7 +2,7 @@ module DaisybillApi
   module Models
     class BillSubmission < DaisybillApi::Models::Base
       rest_actions :index, :show, :create
-      path_prefix '/bills', :bill_id
+      path_prefix "/bills", :bill_id
 
       attributes(
         comment: :string,
@@ -17,7 +17,7 @@ module DaisybillApi
         readonly: true
       )
 
-      link :bill, class: 'Bill'
+      link :bill, class: "Bill"
     end
   end
 end

@@ -1,4 +1,4 @@
-require 'logger'
+require "logger"
 
 module DaisybillApi
   class Configuration
@@ -7,7 +7,7 @@ module DaisybillApi
     #
     #   DaisybillApi.configuration.api_token                     # => "987654321zyxwvu"
     #   DaisybillApi.configuration.api_token = "123456789abcdef" # => "123456789abcdef"
-    #   DaisybillApi.configuration.api_token                     # => "123456789abcdef"'
+    #   DaisybillApi.configuration.api_token                     # => "123456789abcdef"
     #
     # @return [String]
     attr_accessor :api_token
@@ -35,7 +35,7 @@ module DaisybillApi
 
     def initialize
       @port = 443
-      @host = 'go.daisybill.com'
+      @host = "go.daisybill.com"
     end
 
     # @private

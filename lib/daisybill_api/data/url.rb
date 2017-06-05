@@ -1,9 +1,9 @@
-require 'uri/http'
+require "uri/http"
 
 module DaisybillApi
   module Data
     module Url
-      DEFAULT_PATH = '/api/v1'
+      DEFAULT_PATH = "/api/v1"
 
       class << self
         def build(path, params = {})

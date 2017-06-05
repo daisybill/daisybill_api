@@ -6,7 +6,7 @@
 Add the following line to your application's `Gemfile`:
 
 ```ruby
-gem 'daisybill_api', '~> 0.1.3'
+gem "daisybill_api", "~> 0.1.3"
 ```
 
 and run

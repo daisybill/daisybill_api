@@ -1,7 +1,7 @@
 module DaisybillApi
   module Models
     class Contact < DaisybillApi::Models::Base
-      path_prefix '/injuries', :injury_id
+      path_prefix "/injuries", :injury_id
       rest_actions :index, :show, :create, :update
 
       attributes(
@@ -21,7 +21,7 @@ module DaisybillApi
         address:         DaisybillApi::Models::Address
       )
 
-      link :injury, class: 'Injury'
+      link :injury, class: "Injury"
     end
   end
 end

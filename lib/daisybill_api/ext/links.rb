@@ -1,4 +1,4 @@
-require 'daisybill_api/ext/links/link'
+require "daisybill_api/ext/links/link"
 
 module DaisybillApi
   module Ext
@@ -19,7 +19,7 @@ module DaisybillApi
 
       module InstanceMethods
         def initialize(attributes)
-          lnks = attributes.delete 'links'
+          lnks = attributes.delete "links"
           super(attributes)
           class_links.each { |link| links[link.name] = link.clone }
           self.links = lnks
@@ -27,7 +27,7 @@ module DaisybillApi
 
         def links=(values)
           return if values.nil?
-          values.each { |link| write_link link['rel'], link['href'] }
+          values.each { |link| write_link link["rel"], link["href"] }
         end
 
         private

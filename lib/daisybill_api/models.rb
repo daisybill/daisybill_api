@@ -16,6 +16,8 @@ require "daisybill_api/models/attachment"
 require "daisybill_api/models/service_line_item"
 require "daisybill_api/models/bill"
 require "daisybill_api/models/pharmacy_bill"
+require "daisybill_api/models/claim_adjustment_reason"
+require "daisybill_api/models/service_line_item_payment"
 require "daisybill_api/models/bill_payment"
 require "daisybill_api/models/claim_number_verification"
 require "daisybill_api/models/remittance"
@@ -27,6 +29,5 @@ require "daisybill_api/models/user"
 
 module DaisybillApi
   # @private
-  module Models
-  end
+  module Models; end
 end

@@ -1,5 +1,5 @@
-require 'daisybill_api/ext/attributes/type_castings'
-require 'daisybill_api/ext/attributes/attribute'
+require "daisybill_api/ext/attributes/type_castings"
+require "daisybill_api/ext/attributes/attribute"
 
 module DaisybillApi
   module Ext

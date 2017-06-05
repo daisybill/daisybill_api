@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe DaisybillApi::Ext::PageableCollection do
   let(:resource_class) { DaisybillApi::Models::Bill }

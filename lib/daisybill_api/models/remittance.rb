@@ -1,7 +1,7 @@
 module DaisybillApi
   module Models
     class Remittance < DaisybillApi::Models::Base
-      path_prefix '/billing_providers', :billing_provider_id
+      path_prefix "/billing_providers", :billing_provider_id
       rest_actions :index, :show, :create
       attributes id: :integer, readonly: true
       attributes(
@@ -12,9 +12,9 @@ module DaisybillApi
         bill_payments: [DaisybillApi::Models::BillPayment]
       )
 
-      has_many :paper_eors, class: 'PaperEor'
+      has_many :paper_eors, class: "PaperEor"
 
-      link :billing_provider, class: 'BillingProvider'
+      link :billing_provider, class: "BillingProvider"
     end
   end
 end

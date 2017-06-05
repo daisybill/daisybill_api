@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Add `bill_payment.claim_adjustment_reasons`             [PR](https://github.com/daisybill/daisybill_api/pull/100)
+- Add `bill_payment.service_line_item_payments`           [PR](https://github.com/daisybill/daisybill_api/pull/100)
 - Add `BillPayment` `find` method                         [PR](https://github.com/daisybill/daisybill_api/pull/104)
 - Add `User` resource                                     [PR](https://github.com/daisybill/daisybill_api/pull/105)
 - Add `practice_bill_id` to pharmacy bills                [PR](https://github.com/daisybill/daisybill_api/pull/96)

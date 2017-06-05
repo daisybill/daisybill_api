@@ -10,7 +10,7 @@ module DaisybillApi
         readonly: true
       )
 
-      has_many :payers, class: 'Payer'
+      has_many :payers, class: "Payer"
     end
   end
 end

@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe DaisybillApi::Models::Bill do
   it_behaves_like DaisybillApi::Ext::Attributes, :id, :date_of_service, :authorization_number, :status,
@@ -11,7 +11,7 @@ describe DaisybillApi::Models::Bill do
     :rendering_provider_id, :referring_provider_id, :supervising_provider_id, :authorization_number,
     :admission_date, :additional_information, :practice_bill_id, :diagnosis_type, :diagnosis_codes,
     :service_line_items_attributes, :injury_id
-  it_behaves_like DaisybillApi::Ext::CRUD, :all, :find, :create, :update, :destroy, :write_off, '/bills', injury_id: '/injuries'
+  it_behaves_like DaisybillApi::Ext::CRUD, :all, :find, :create, :update, :destroy, :write_off, "/bills", injury_id: "/injuries"
   it_behaves_like DaisybillApi::Ext::Links, injury: DaisybillApi::Models::Injury,
     place_of_service: DaisybillApi::Models::PlaceOfService,
     rendering_provider: DaisybillApi::Models::RenderingProvider,

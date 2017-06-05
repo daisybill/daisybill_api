@@ -21,7 +21,7 @@ module DaisybillApi
           def save
             return update unless new_record?
             return create if respond_to? :create
-            message = '#save method is not supported for new record'
+            message = "#save method is not supported for new record"
             DaisybillApi.logger.error message
             raise NotImplementedError.new message
           end

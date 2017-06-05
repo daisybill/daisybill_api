@@ -1,7 +1,7 @@
 module DaisybillApi
   module Models
     class ErrorReport < DaisybillApi::Models::Base
-      path_prefix '/bills', :bill_id
+      path_prefix "/bills", :bill_id
       rest_actions :index, :show, :create
 
       attributes(
@@ -24,7 +24,7 @@ module DaisybillApi
         call_reference_number: :string,
       )
 
-      link :bill, class: 'Bill'
+      link :bill, class: "Bill"
     end
   end
 end

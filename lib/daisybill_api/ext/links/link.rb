@@ -14,7 +14,7 @@ module DaisybillApi
         def value
           return unless href
           default_path = DaisybillApi::Data::Url::DEFAULT_PATH
-          c = DaisybillApi::Data::Client.build(:get, href.gsub(default_path, ''))
+          c = DaisybillApi::Data::Client.build(:get, href.gsub(default_path, ""))
           klass.constantize.new(c.response) if c.success?
         end
 
@@ -27,7 +27,7 @@ module DaisybillApi
         end
 
         def foreign_id
-          href.split('/').last
+          href.split("/").last
         end
       end
     end
