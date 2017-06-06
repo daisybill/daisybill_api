@@ -10,5 +10,5 @@ describe DaisybillApi::Models::User do
     :created_at,
     :updated_at
 
-  it_behaves_like DaisybillApi::Ext::CRUD, :find, "/users"
+  it_behaves_like DaisybillApi::Ext::CRUD, :find, :all, "/users"
 end

@@ -1,7 +1,7 @@
 module DaisybillApi
   module Models
     class User < DaisybillApi::Models::Base
-      rest_actions :show
+      rest_actions :show, :index
 
       attributes(
         id: :integer,
