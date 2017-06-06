@@ -1,6 +1,7 @@
 # Changelog
 
 ## Unreleased
+- Add `User.all`                                          [PR](https://github.com/daisybill/daisybill_api/pull/106)
 - Add `bill.tasks`                                        [PR](https://github.com/daisybill/daisybill_api/pull/103)
 - Add `Task` resource                                     [PR](https://github.com/daisybill/daisybill_api/pull/103)
 - Add `claims_administrator.bill_mailing_addresses`       [PR](https://github.com/daisybill/daisybill_api/pull/99)
