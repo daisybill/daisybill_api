@@ -26,6 +26,7 @@ module DaisybillApi
       has_many :bills, class: "Bill", set_path: true
       has_many :pharmacy_bills, class: "PharmacyBill", set_path: true
       has_many :injuries, class: "Injury", set_path: true
+      has_many :tasks, set_path: true, class: "Task"
     end
   end
 end
