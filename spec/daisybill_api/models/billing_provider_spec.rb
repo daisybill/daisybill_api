@@ -13,6 +13,7 @@ describe DaisybillApi::Models::BillingProvider do
   it_behaves_like DaisybillApi::Ext::Associations, :attachments
   it_behaves_like DaisybillApi::Ext::Associations, :remittances
   it_behaves_like DaisybillApi::Ext::Associations, :bills
+  it_behaves_like DaisybillApi::Ext::Associations, :tasks
   it_behaves_like DaisybillApi::Ext::Associations, :pharmacy_bills
   it_behaves_like DaisybillApi::Ext::Associations, :injuries
   it_behaves_like DaisybillApi::Ext::Links
