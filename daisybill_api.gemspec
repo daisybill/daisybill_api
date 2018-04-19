@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.test_files = Dir["spec/**/*_spec.rb"]
 
   s.add_runtime_dependency      "activemodel",                ">= 4.2"
-  s.add_runtime_dependency      "rest-client",                "~> 1.8"
+  s.add_runtime_dependency      "rest-client",                "~> 2.0"
 
   s.add_development_dependency  "bundler",                    "~> 1.7"
   s.add_development_dependency  "ffaker",                     "~> 2.0"
