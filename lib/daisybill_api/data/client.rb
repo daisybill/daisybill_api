@@ -1,5 +1,4 @@
 require "rest-client"
-require "daisybill_api/data/rest_client/payload"
 
 module DaisybillApi
   # @private
@@ -29,8 +28,7 @@ module DaisybillApi
         data = {
           method: method,
           url: url,
-          payload: params,
-          headers: { "Content-Type" => "application/json" }
+          payload: params
         }
         RestClient::Request.execute(data) { |response, request, status|
           @headers = response.headers
