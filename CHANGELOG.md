@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.1.6] - April 20th, 2018
+- Update rest client                                      [PR](https://github.com/daisybill/daisybill_api/pull/113)
+- Add ability to get tasks for billing provider           [PR](https://github.com/daisybill/daisybill_api/pull/111)
+
 ## [0.1.5] - June 12th, 2017
 - Add `User.all`                                          [PR](https://github.com/daisybill/daisybill_api/pull/106)
 - Add `bill.tasks`                                        [PR](https://github.com/daisybill/daisybill_api/pull/103)
