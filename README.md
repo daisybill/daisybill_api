@@ -1,4 +1,3 @@
-# DaisyBill API [![Build Status](https://semaphoreci.com/api/v1/projects/4e51c7d8-2ca3-4c3e-9172-ff2082309342/1277031/shields_badge.svg)](https://semaphoreci.com/daisybill/daisybill_api) [![Code Climate](https://codeclimate.com/repos/54ff0165e30ba055fa001c7f/badges/1cde64d9bdc572be43a9/gpa.svg)](https://codeclimate.com/repos/54ff0165e30ba055fa001c7f/feed)
 ###### ActiveRecord Style Wrapper for DaisyBill's API
 
 ## Installation
@@ -6,7 +5,7 @@
 Add the following line to your application's `Gemfile`:
 
 ```ruby
-gem "daisybill_api", "~> 0.1.3"
+gem "daisybill_api", "~> 0.1.6"
 ```
 
 and run
@@ -16,9 +15,9 @@ $ bundle install
 ```
 
 ## Usage
-For usage examples, checkout the [DaisyBill API documentation site](http://dev.daisybill.com)
+For usage examples, checkout the [DaisyBill API documentation site](https://dev.daisybill.com)
 
-You can also view the [API reference](http://www.rubydoc.info/github/daisybill/daisybill_api/master)
+You can also view the [API reference](https://www.rubydoc.info/github/daisybill/daisybill_api/master)
 
 ## Compatibility
 This gem is tested against the following versions of Ruby:
@@ -38,7 +37,7 @@ This gem is tested against the following versions of Ruby:
 ## License
 The MIT License (MIT)
 
-© 2015-present DaisyBill LLC
+© 2015-present DaisyBill, Inc.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
