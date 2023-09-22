@@ -13,7 +13,10 @@ module DaisybillApi
               host: DaisybillApi.configuration.host,
               port: port,
               path: "#{DEFAULT_PATH}#{path}",
-              query: to_query(params.merge api_token: DaisybillApi.configuration.api_token)
+              headers: {
+                "Authorization" => "Bearer #{DaisybillApi.configuration.api_token}"
+              },
+              query: to_query(params)
             })
         end
 
