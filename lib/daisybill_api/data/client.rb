@@ -28,7 +28,10 @@ module DaisybillApi
         data = {
           method: method,
           url: url,
-          payload: params
+          payload: params,
+          headers: {
+            "User-Agent" => "DaisyBill_API/#{DaisybillApi::VERSION}",
+          }
         }
         RestClient::Request.execute(data) { |response, request, status|
           @headers = response.headers
