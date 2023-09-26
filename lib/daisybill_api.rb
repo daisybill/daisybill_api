@@ -2,6 +2,7 @@ require "daisybill_api/data"
 require "daisybill_api/configuration"
 require "daisybill_api/ext"
 require "daisybill_api/models"
+require "daisybill_api/version"
 
 module DaisybillApi
   # @private
