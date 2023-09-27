@@ -9,5 +9,4 @@ describe DaisybillApi::Data::Url do
 
   it { is_expected.to include "page=1" }
   it { is_expected.to include "per_page=20" }
-  it { is_expected.to include "api_token=token" }
 end

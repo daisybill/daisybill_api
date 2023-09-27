@@ -30,6 +30,7 @@ module DaisybillApi
           url: url,
           payload: params,
           headers: {
+            "Authorization" => "Bearer #{DaisybillApi.configuration.api_token}",
             "User-Agent" => "DaisyBill_API/#{DaisybillApi::VERSION}",
           }
         }

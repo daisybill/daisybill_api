@@ -13,9 +13,6 @@ module DaisybillApi
               host: DaisybillApi.configuration.host,
               port: port,
               path: "#{DEFAULT_PATH}#{path}",
-              headers: {
-                "Authorization" => "Bearer #{DaisybillApi.configuration.api_token}"
-              },
               query: to_query(params)
             })
         end
