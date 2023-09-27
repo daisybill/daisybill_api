@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://go.daisybill.com/api/v1/billing_providers/25?api_token
+    uri: https://go.daisybill.com/api/v1/billing_providers/25
     body:
       encoding: ASCII-8BIT
       string: ''
@@ -15,8 +15,10 @@ http_interactions:
       - application/x-www-form-urlencoded
       Content-Length:
       - '0'
+      Authorization:
+      - Bearer 1234567890
       User-Agent:
-      - Ruby
+      - DaisyBill_API/0.1.6
   response:
     status:
       code: 401
@@ -51,7 +53,7 @@ http_interactions:
   recorded_at: Tue, 21 Mar 2017 18:50:23 GMT
 - request:
     method: post
-    uri: https://go.daisybill.com/api/v1/billing_providers/25?api_token
+    uri: https://go.daisybill.com/api/v1/billing_providers/25
     body:
       encoding: ASCII-8BIT
       string: ''
@@ -64,8 +66,10 @@ http_interactions:
       - application/x-www-form-urlencoded
       Content-Length:
       - '0'
+      Authorization:
+      - Bearer 1234567890
       User-Agent:
-      - Ruby
+      - DaisyBill_API/0.1.6
   response:
     status:
       code: 405
@@ -100,7 +104,7 @@ http_interactions:
   recorded_at: Tue, 21 Mar 2017 20:01:39 GMT
 - request:
     method: post
-    uri: https://go.daisybill.com/api/v1/billing_providers/25?api_token
+    uri: https://go.daisybill.com/api/v1/billing_providers/25
     body:
       encoding: ASCII-8BIT
       string: ''
@@ -113,8 +117,10 @@ http_interactions:
       - application/x-www-form-urlencoded
       Content-Length:
       - '0'
+      Authorization:
+      - Bearer 1234567890
       User-Agent:
-      - Ruby
+      - DaisyBill_API/0.1.6
   response:
     status:
       code: 405

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://go.daisybill.com/api/v1/billing_providers/25?api_token
+    uri: https://go.daisybill.com/api/v1/billing_providers/25
     body:
       encoding: US-ASCII
       string: ''
@@ -11,8 +11,10 @@ http_interactions:
       - "*/*; q=0.5, application/xml"
       Accept-Encoding:
       - gzip, deflate
+      Authorization:
+      - Bearer 1234567890
       User-Agent:
-      - Ruby
+      - DaisyBill_API/0.1.6
   response:
     status:
       code: 200
@@ -41,6 +43,6 @@ http_interactions:
       string: '{"created_at":"2013-01-14T12:48:15.620-08:00","updated_at":"2014-12-05T05:45:35.504-08:00","id":25,"name":"McCullough,
         Keebler and Mraz","fein":"123456789","npi":"3902263841","telephone":"23470485661435632","fax_number":"","physical_address":{"created_at":"2013-01-14T12:48:15.622-08:00","updated_at":"2014-08-13T04:47:07.444-07:00","id":5847,"address_1":"805
         Bianka Gateway","address_2":"","city":"North Reyna","state":"NY","zip_code":"900019998"}}'
-    http_version: 
+    http_version:
   recorded_at: Tue, 10 Mar 2015 13:52:06 GMT
 recorded_with: VCR 2.9.3
