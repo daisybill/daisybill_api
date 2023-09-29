@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.7] - September 29th, 2023
+
+- Require JSON                                            [PR](https://github.com/daisybill/daisybill_api/pull/127)
+- Fix Broken CI Pipeline by Using GH Actions              [PR](https://github.com/daisybill/daisybill_api/pull/121)
+- Send API Token in Authorization Header                  [PR](https://github.com/daisybill/daisybill_api/pull/119)
+- Add User Agent String                                   [PR](https://github.com/daisybill/daisybill_api/pull/115)
+
 ## [0.1.6] - April 20th, 2018
 - Update rest client                                      [PR](https://github.com/daisybill/daisybill_api/pull/113)
 - Add ability to get tasks for billing provider           [PR](https://github.com/daisybill/daisybill_api/pull/111)
