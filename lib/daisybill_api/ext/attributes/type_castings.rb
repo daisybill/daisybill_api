@@ -70,7 +70,7 @@ module DaisybillApi
           end
 
           def to_attachment(value)
-            return open(value) if value.is_a? String
+            return URI.open(value) if value.is_a? String
             value if value.is_a?(StringIO) || value.kind_of?(IO)
           end
 
