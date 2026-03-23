@@ -10,7 +10,7 @@ Dir["#{DaisybillApi::ROOT}/spec/support/**/*.rb"].each { |f| require f }
 VCR.configure do |config|
   config.cassette_library_dir = "#{DaisybillApi::ROOT}/spec/fixtures/vcr"
   config.hook_into :webmock
-  config.default_cassette_options = { :record => :new_episodes }
+  config.default_cassette_options = { :record => :none }
   config.configure_rspec_metadata!
 end
 

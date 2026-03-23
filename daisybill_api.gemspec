@@ -18,14 +18,14 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency      "activemodel",                ">= 4.2"
   s.add_runtime_dependency      "rest-client",                "~> 2.0"
 
-  s.add_development_dependency  "bundler",                    "~> 1.7"
+  s.add_development_dependency  "bundler",                    ">= 1.7"
   s.add_development_dependency  "ffaker",                     "~> 2.0"
   s.add_development_dependency  "rake",                       "~> 10.0"
   s.add_development_dependency  "rspec",                      "~> 3.2"
   s.add_development_dependency  "rspec-collection_matchers",  "~> 1.1"
   s.add_development_dependency  "rspec-its",                  "~> 1.2"
-  s.add_development_dependency  "vcr",                        "~> 2.9"
-  s.add_development_dependency  "webmock",                    "~> 1.20"
+  s.add_development_dependency  "vcr",                        "~> 6.3"
+  s.add_development_dependency  "webmock",                    "~> 3.25"
   s.add_development_dependency  "yard",                       "~> 0.9.0"
 end
 

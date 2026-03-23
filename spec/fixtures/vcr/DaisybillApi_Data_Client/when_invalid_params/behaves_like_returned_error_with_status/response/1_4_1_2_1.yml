@@ -1,0 +1,86 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://go.daisybill.com/api/v1/invalid/params?created_on=invalid
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - DaisyBill_API/0.1.9
+      Authorization:
+      - Bearer i543s6ibSs28GGVAPHXqpaZp51MGQGtzBgfi
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - go.daisybill.com
+  response:
+    status:
+      code: 403
+      message: Forbidden
+    headers:
+      Content-Type:
+      - application/json
+      Cache-Control:
+      - no-cache
+      Feature-Policy:
+      - camera 'none'; geolocation 'none'; gyroscope 'none'; microphone 'none'; usb
+        'none'; fullscreen 'self'; payment 'self' https://*.recurly.com
+      Content-Security-Policy:
+      - 'base-uri ''none''; default-src ''self'' https: blob:; connect-src ''self''
+        https://via.intercom.io https://api.intercom.io https://api.au.intercom.io
+        https://api.eu.intercom.io https://api-iam.intercom.io https://api-iam.eu.intercom.io
+        https://api-iam.au.intercom.io https://api-ping.intercom.io https://*.intercom-messenger.com
+        wss://*.intercom-messenger.com https://nexus-websocket-a.intercom.io wss://nexus-websocket-a.intercom.io
+        https://nexus-websocket-b.intercom.io wss://nexus-websocket-b.intercom.io
+        https://nexus-europe-websocket.intercom.io wss://nexus-europe-websocket.intercom.io
+        https://nexus-australia-websocket.intercom.io wss://nexus-australia-websocket.intercom.io
+        https://uploads.intercomcdn.com https://uploads.intercomcdn.eu https://uploads.au.intercomcdn.com
+        https://uploads.eu.intercomcdn.com https://uploads.intercomusercontent.com
+        *.nr-data.net https://blog.daisybillstaging.com https://blog.daisybill.com
+        *.wistia.com *.recurly.com *.google-analytics.com *.analytics.google.com *.googletagmanager.com
+        *.amazonaws.com *.sentry.io status.daisybill.com http: ws:; frame-src https:
+        https://fast.wistia.com https://fast.wistia.net; font-src ''self'' https:
+        data: https://js.intercomcdn.com https://fonts.intercomcdn.com; img-src ''self''
+        blob: data: https: about: https://js.intercomcdn.com https://static.intercomassets.com
+        https://downloads.intercomcdn.com https://downloads.intercomcdn.eu https://downloads.au.intercomcdn.com
+        https://uploads.intercomusercontent.com https://fast.wistia.com https://gifs.intercomcdn.com
+        https://video-messages.intercomcdn.com https://messenger-apps.intercom.io
+        https://messenger-apps.eu.intercom.io https://messenger-apps.au.intercom.io
+        https://*.intercom-attachments-1.com https://*.intercom-attachments.eu https://*.au.intercom-attachments.com
+        https://*.intercom-attachments-2.com https://*.intercom-attachments-3.com
+        https://*.intercom-attachments-4.com https://*.intercom-attachments-5.com
+        https://*.intercom-attachments-6.com https://*.intercom-attachments-7.com
+        https://*.intercom-attachments-8.com https://*.intercom-attachments-9.com
+        https://static.intercomassets.eu https://static.au.intercomassets.com; object-src
+        *.s3.amazonaws.com; script-src ''self'' ''unsafe-eval'' ''strict-dynamic''
+        www.google.com www.gstatic.com *.googletagmanager.com fast.wistia.com fast.wistia.net
+        app.intercom.io widget.intercom.io js.intercomcdn.com js.recurly.com use.typekit.com
+        js-agent.newrelic.com *.nr-data.net ajax.googleapis.com *.s3.amazonaws.com
+        browser.sentry-cdn.com js.sentry-cdn.com  ''nonce-2e8tHHQ+R64XK6hwpb0gGA=='';
+        style-src ''self'' https: ''unsafe-inline'' use.typekit.com; child-src ''self''
+        blob: intercom-sheets.com www.intercom-reporting.com www.youtube.com player.vimeo.com
+        fast.wistia.net'
+      X-Request-Id:
+      - '086f9521-752f-4bd5-823e-7271811ee9a7'
+      X-Runtime:
+      - '0.035051'
+      Server-Timing:
+      - safelist.rack_attack;dur=0.01, rack.attack;dur=0.00, sql.active_record;dur=18.11,
+        instantiation.active_record;dur=0.11, endpoint_run_filters.grape;dur=22.77,
+        endpoint_run_validators.grape;dur=0.01, endpoint_render.grape;dur=0.02, endpoint_run.grape;dur=22.99,
+        start_transaction.active_record;dur=0.00, transaction.active_record;dur=4.33
+      Set-Cookie:
+      - __profilin=p%3Dt; path=/; HttpOnly; SameSite=Lax
+      Connection:
+      - close
+      Content-Length:
+      - '58'
+    body:
+      encoding: UTF-8
+      string: '{"error":"/api/v1/invalid/params is not a valid endpoint"}'
+  recorded_at: Mon, 23 Mar 2026 17:05:05 GMT
+recorded_with: VCR 6.4.0
