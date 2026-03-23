@@ -2,50 +2,175 @@
 http_interactions:
 - request:
     method: get
-    uri: https://go.daisybill.com/api/v1/invalid/params
+    uri: https://go.daisybill.com/api/v1/invalid/params?created_on=invalid
     body:
       encoding: US-ASCII
-      string: created_on=invalid
+      string: ''
     headers:
       Accept:
-      - "*/*; q=0.5, application/xml"
-      Accept-Encoding:
-      - gzip, deflate
-      Content-Type:
-      - application/x-www-form-urlencoded
-      Content-Length:
-      - '18'
-      Authorization:
-      - Bearer 1234567890
+      - "*/*"
       User-Agent:
-      - DaisyBill_API/0.1.6
+      - DaisyBill_API/0.1.9
+      Authorization:
+      - Bearer i543s6ibSs28GGVAPHXqpaZp51MGQGtzBgfi
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - go.daisybill.com
   response:
     status:
       code: 403
-      message: 'Forbidden '
+      message: Forbidden
+    headers:
+      Content-Type:
+      - application/json
+      Cache-Control:
+      - no-cache
+      Feature-Policy:
+      - camera 'none'; geolocation 'none'; gyroscope 'none'; microphone 'none'; usb
+        'none'; fullscreen 'self'; payment 'self' https://*.recurly.com
+      Content-Security-Policy:
+      - 'base-uri ''none''; default-src ''self'' https: blob:; connect-src ''self''
+        https://via.intercom.io https://api.intercom.io https://api.au.intercom.io
+        https://api.eu.intercom.io https://api-iam.intercom.io https://api-iam.eu.intercom.io
+        https://api-iam.au.intercom.io https://api-ping.intercom.io https://*.intercom-messenger.com
+        wss://*.intercom-messenger.com https://nexus-websocket-a.intercom.io wss://nexus-websocket-a.intercom.io
+        https://nexus-websocket-b.intercom.io wss://nexus-websocket-b.intercom.io
+        https://nexus-europe-websocket.intercom.io wss://nexus-europe-websocket.intercom.io
+        https://nexus-australia-websocket.intercom.io wss://nexus-australia-websocket.intercom.io
+        https://uploads.intercomcdn.com https://uploads.intercomcdn.eu https://uploads.au.intercomcdn.com
+        https://uploads.eu.intercomcdn.com https://uploads.intercomusercontent.com
+        *.nr-data.net https://blog.daisybillstaging.com https://blog.daisybill.com
+        *.wistia.com *.recurly.com *.google-analytics.com *.analytics.google.com *.googletagmanager.com
+        *.amazonaws.com *.sentry.io status.daisybill.com http: ws:; frame-src https:
+        https://fast.wistia.com https://fast.wistia.net; font-src ''self'' https:
+        data: https://js.intercomcdn.com https://fonts.intercomcdn.com; img-src ''self''
+        blob: data: https: about: https://js.intercomcdn.com https://static.intercomassets.com
+        https://downloads.intercomcdn.com https://downloads.intercomcdn.eu https://downloads.au.intercomcdn.com
+        https://uploads.intercomusercontent.com https://fast.wistia.com https://gifs.intercomcdn.com
+        https://video-messages.intercomcdn.com https://messenger-apps.intercom.io
+        https://messenger-apps.eu.intercom.io https://messenger-apps.au.intercom.io
+        https://*.intercom-attachments-1.com https://*.intercom-attachments.eu https://*.au.intercom-attachments.com
+        https://*.intercom-attachments-2.com https://*.intercom-attachments-3.com
+        https://*.intercom-attachments-4.com https://*.intercom-attachments-5.com
+        https://*.intercom-attachments-6.com https://*.intercom-attachments-7.com
+        https://*.intercom-attachments-8.com https://*.intercom-attachments-9.com
+        https://static.intercomassets.eu https://static.au.intercomassets.com; object-src
+        *.s3.amazonaws.com; script-src ''self'' ''unsafe-eval'' ''strict-dynamic''
+        www.google.com www.gstatic.com *.googletagmanager.com fast.wistia.com fast.wistia.net
+        app.intercom.io widget.intercom.io js.intercomcdn.com js.recurly.com use.typekit.com
+        js-agent.newrelic.com *.nr-data.net ajax.googleapis.com *.s3.amazonaws.com
+        browser.sentry-cdn.com js.sentry-cdn.com  ''nonce-Vq9McI921cU9sHYcwl1s+g=='';
+        style-src ''self'' https: ''unsafe-inline'' use.typekit.com; child-src ''self''
+        blob: intercom-sheets.com www.intercom-reporting.com www.youtube.com player.vimeo.com
+        fast.wistia.net'
+      X-Request-Id:
+      - 2b1163dd-9c1d-4bc8-840b-720b5f3ec44c
+      X-Runtime:
+      - '0.068929'
+      Server-Timing:
+      - safelist.rack_attack;dur=0.02, rack.attack;dur=0.01, sql.active_record;dur=24.12,
+        instantiation.active_record;dur=0.28, endpoint_run_filters.grape;dur=53.15,
+        endpoint_run_validators.grape;dur=0.01, endpoint_render.grape;dur=0.02, endpoint_run.grape;dur=53.42,
+        start_transaction.active_record;dur=0.00, transaction.active_record;dur=3.49
+      Set-Cookie:
+      - __profilin=p%3Dt; path=/; HttpOnly; SameSite=Lax
+      Connection:
+      - close
+      Content-Length:
+      - '58'
+    body:
+      encoding: UTF-8
+      string: '{"error":"/api/v1/invalid/params is not a valid endpoint"}'
+  recorded_at: Mon, 23 Mar 2026 14:39:45 GMT
+- request:
+    method: get
+    uri: https://go.daisybill.com/api/v1/invalid/params?created_on=invalid
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - DaisyBill_API/0.1.9
+      Authorization:
+      - Bearer
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - go.daisybill.com
+  response:
+    status:
+      code: 401
+      message: Unauthorized
     headers:
       Content-Type:
       - application/json
       Content-Length:
-      - '33'
+      - '36'
+      Connection:
+      - keep-alive
       Cache-Control:
       - no-cache
+      Content-Security-Policy:
+      - 'base-uri ''none''; default-src ''self'' https: blob:; connect-src ''self''
+        https://via.intercom.io https://api.intercom.io https://api.au.intercom.io
+        https://api.eu.intercom.io https://api-iam.intercom.io https://api-iam.eu.intercom.io
+        https://api-iam.au.intercom.io https://api-ping.intercom.io https://*.intercom-messenger.com
+        wss://*.intercom-messenger.com https://nexus-websocket-a.intercom.io wss://nexus-websocket-a.intercom.io
+        https://nexus-websocket-b.intercom.io wss://nexus-websocket-b.intercom.io
+        https://nexus-europe-websocket.intercom.io wss://nexus-europe-websocket.intercom.io
+        https://nexus-australia-websocket.intercom.io wss://nexus-australia-websocket.intercom.io
+        https://uploads.intercomcdn.com https://uploads.intercomcdn.eu https://uploads.au.intercomcdn.com
+        https://uploads.eu.intercomcdn.com https://uploads.intercomusercontent.com
+        *.nr-data.net https://blog.daisybillstaging.com https://blog.daisybill.com
+        *.wistia.com *.recurly.com *.google-analytics.com *.analytics.google.com *.googletagmanager.com
+        *.amazonaws.com *.sentry.io status.daisybill.com; frame-src https: https://fast.wistia.com
+        https://fast.wistia.net; font-src ''self'' https: data: https://js.intercomcdn.com
+        https://fonts.intercomcdn.com; img-src ''self'' blob: data: https: about:
+        https://js.intercomcdn.com https://static.intercomassets.com https://downloads.intercomcdn.com
+        https://downloads.intercomcdn.eu https://downloads.au.intercomcdn.com https://uploads.intercomusercontent.com
+        https://fast.wistia.com https://gifs.intercomcdn.com https://video-messages.intercomcdn.com
+        https://messenger-apps.intercom.io https://messenger-apps.eu.intercom.io https://messenger-apps.au.intercom.io
+        https://*.intercom-attachments-1.com https://*.intercom-attachments.eu https://*.au.intercom-attachments.com
+        https://*.intercom-attachments-2.com https://*.intercom-attachments-3.com
+        https://*.intercom-attachments-4.com https://*.intercom-attachments-5.com
+        https://*.intercom-attachments-6.com https://*.intercom-attachments-7.com
+        https://*.intercom-attachments-8.com https://*.intercom-attachments-9.com
+        https://static.intercomassets.eu https://static.au.intercomassets.com; object-src
+        *.s3.amazonaws.com; script-src ''self'' ''unsafe-eval'' ''strict-dynamic''
+        www.google.com www.gstatic.com *.googletagmanager.com fast.wistia.com fast.wistia.net
+        app.intercom.io widget.intercom.io js.intercomcdn.com js.recurly.com use.typekit.com
+        js-agent.newrelic.com *.nr-data.net ajax.googleapis.com *.s3.amazonaws.com
+        browser.sentry-cdn.com js.sentry-cdn.com  ''nonce-efVk6jJITwZ5yJxeXLjbyw=='';
+        style-src ''self'' https: ''unsafe-inline'' use.typekit.com; child-src ''self''
+        blob: intercom-sheets.com www.intercom-reporting.com www.youtube.com player.vimeo.com
+        fast.wistia.net; report-uri /csp_reports'
+      Feature-Policy:
+      - camera 'none'; geolocation 'none'; gyroscope 'none'; microphone 'none'; usb
+        'none'; fullscreen 'self'; payment 'self' https://*.recurly.com
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
+      Via:
+      - 1.1 spaces-router (0c8eb837de5e), 1.1 8e88e89c560961cfc1c3e8bf8af2ec84.cloudfront.net
+        (CloudFront)
       X-Request-Id:
-      - bc790e10-ce6a-45d8-add7-d084abcb6c10
+      - ae91c397-ce8e-9b67-39a2-33a6b4cf17a3
       X-Runtime:
-      - '0.053659'
-      Server:
-      - WEBrick/1.3.1 (Ruby/2.1.7/2015-08-18)
+      - '0.007313'
       Date:
-      - Fri, 30 Oct 2015 10:03:21 GMT
-      Connection:
-      - Keep-Alive
-      Set-Cookie:
-      - __profilin=p%3Dt; path=/
-      - __profilin=p%3Dt; path=/
+      - Mon, 23 Mar 2026 14:39:53 GMT
+      X-Cache:
+      - Error from cloudfront
+      X-Amz-Cf-Pop:
+      - BOS50-P4
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      X-Amz-Cf-Id:
+      - A74VWy7uNTUq4nwTSy2bkVflwtuEyVnSOkQOiApD2O8mWwsNm13LoA==
     body:
       encoding: UTF-8
-      string: '{"error":"created_on is invalid"}'
-    http_version:
-  recorded_at: Fri, 30 Oct 2015 10:03:21 GMT
-recorded_with: VCR 2.9.3
+      string: '{"error":"Your user is not active."}'
+  recorded_at: Mon, 23 Mar 2026 14:39:53 GMT
+recorded_with: VCR 6.4.0
