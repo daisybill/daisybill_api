@@ -25,11 +25,15 @@ module DaisybillApi
       def initialize(method, path, params = {})
         DaisybillApi.logger.info "#{method.to_s.upcase} #{path}"
         DaisybillApi.logger.debug params.inspect
-        url = DaisybillApi::Data::Url.build(path).to_s
+        if method == :get
+          url = DaisybillApi::Data::Url.build(path, params).to_s
+        else
+          url = DaisybillApi::Data::Url.build(path).to_s
+        end
         data = {
           method: method,
           url: url,
-          payload: params,
+          payload: method == :get ? nil : params,
           headers: {
             "Authorization" => "Bearer #{DaisybillApi.configuration.api_token}",
             "User-Agent" => "DaisyBill_API/#{DaisybillApi::VERSION}",

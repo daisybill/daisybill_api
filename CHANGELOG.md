@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.2.0] - March 24th, 2026
+
+- Update Ruby and dependencies
+- Add VCR cassette for attachment response and prevent recording new episodes
+- Fix GET requests sending params as request body instead of query string (WAF blocks)
+
+## [0.1.9] - March 23rd, 2026
+
+- Fix GET requests sending params as request body instead of query string (WAF blocks)
+
 ## [0.1.7] - September 29th, 2023
 
 - Require JSON                                            [PR](https://github.com/daisybill/daisybill_api/pull/127)
