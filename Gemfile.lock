@@ -54,7 +54,7 @@ GEM
     netrc (0.11.0)
     prism (1.9.0)
     public_suffix (7.0.2)
-    rake (10.5.0)
+    rake (13.3.1)
     rest-client (2.1.0)
       http-accept (>= 1.7.0, < 2.0)
       http-cookie (>= 1.0.2, < 2.0)
@@ -97,7 +97,7 @@ DEPENDENCIES
   bundler (~> 2.0)
   daisybill_api!
   ffaker (~> 2.0)
-  rake (~> 10.0)
+  rake (>= 10.0)
   rspec (~> 3.2)
   rspec-collection_matchers (~> 1.1)
   rspec-its (~> 1.2)
