@@ -1,13 +1,14 @@
 # Changelog
 
-## [0.1.9] - March 23rd, 2026
-
-- Fix GET requests sending params as request body instead of query string, which caused WAF blocks
-
-## [0.1.8] - March 19th, 2026
+## [0.2.0] - March 24th, 2026
 
 - Update Ruby and dependencies
 - Add VCR cassette for attachment response and prevent recording new episodes
+- Fix GET requests sending params as request body instead of query string (WAF blocks)
+
+## [0.1.9] - March 23rd, 2026
+
+- Fix GET requests sending params as request body instead of query string (WAF blocks)
 
 ## [0.1.7] - September 29th, 2023
 
