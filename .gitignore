@@ -5,3 +5,9 @@ log/*.log
 # Documentation
 .yardoc
 doc/
+
+# Claude Code local overrides
+.claude/settings.local.json
+.claude/agents/local/
+.claude/commands/local/
+tmp/
