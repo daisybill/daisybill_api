@@ -22,6 +22,18 @@ updates:
       update-types:
       - minor
       - patch
+    # Security updates ignore the groups above unless a group opts in via
+    # "applies-to: security-updates". "update-types" has no effect on them.
+    bundler-security-production:
+      applies-to: security-updates
+      dependency-type: production
+      patterns:
+      - "*"
+    bundler-security-development:
+      applies-to: security-updates
+      dependency-type: development
+      patterns:
+      - "*"
 - package-ecosystem: github-actions
   directory: "/"
   schedule:

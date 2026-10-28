@@ -1,0 +1,26 @@
+{
+  "mcpServers": {
+    "sentry-mcp": {
+      "type": "http",
+      "url": "https://mcp.sentry.dev/mcp"
+    },
+    "pganalyze": {
+      "type": "http",
+      "url": "https://app.pganalyze.com/mcp"
+    },
+    "linear": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://mcp.linear.app/mcp"
+      ],
+      "env": {}
+    },
+    "sumo-logic": {
+      "type": "http",
+      "url": "https://daisybill.mcp.us2.sumologic.com/mcp"
+    }
+  }
+}
